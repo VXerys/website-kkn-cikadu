@@ -276,7 +276,8 @@ const BusinessPage: React.FC = () => {
                     <select
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none cursor-pointer"
+                      className="w-full pl-10 pr-10 py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none cursor-pointer font-medium"
+                      data-scroll-to-top="false"
                     >
                       {categoryOptions.map((option) => (
                         <option key={option.value} value={option.value}>
@@ -291,7 +292,8 @@ const BusinessPage: React.FC = () => {
                     <select
                       value={sortBy}
                       onChange={(e) => setSortBy(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none cursor-pointer font-medium"
+                      data-scroll-to-top="false"
                     >
                       {sortOptions.map((option) => (
                         <option key={option.value} value={option.value}>
@@ -370,7 +372,8 @@ const BusinessPage: React.FC = () => {
                         size="lg"
                         icon={Phone}
                         onClick={() => handleCall(filteredBusinesses[0].contact)}
-                        className="flex-1 bg-emerald-600 hover:bg-emerald-700"
+                        className="flex-1"
+                        scrollToTop={false}
                       >
                         Hubungi Langsung
                       </Button>
@@ -379,7 +382,7 @@ const BusinessPage: React.FC = () => {
                         size="lg"
                         icon={ExternalLink}
                         onClick={() => handleWhatsApp(filteredBusinesses[0].contact, filteredBusinesses[0].name)}
-                        className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+                        scrollToTop={false}
                       >
                         WhatsApp
                       </Button>
@@ -472,7 +475,8 @@ const BusinessPage: React.FC = () => {
                           size="sm"
                           icon={Phone}
                           onClick={() => handleCall(business.contact)}
-                          className="w-full bg-emerald-600 hover:bg-emerald-700"
+                          className="w-full"
+                          scrollToTop={false}
                         >
                           Hubungi Sekarang
                         </Button>
@@ -481,16 +485,18 @@ const BusinessPage: React.FC = () => {
                             variant="outline"
                             size="sm"
                             onClick={() => handleWhatsApp(business.contact, business.name)}
-                            className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 text-xs"
+                            className="text-xs"
+                            scrollToTop={false}
                           >
                             WhatsApp
                           </Button>
                           <Button
-                            variant="outline"
+                            variant="ghost"
                             size="sm"
                             icon={ExternalLink}
                             onClick={() => window.open(`/map?business=${business.id}`, '_blank')}
-                            className="border-gray-300 text-gray-600 hover:bg-gray-50 text-xs"
+                            className="text-xs"
+                            scrollToTop={false}
                           >
                             Lokasi
                           </Button>
@@ -523,18 +529,20 @@ const BusinessPage: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                variant="secondary"
+                variant="primary"
                 size="lg"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="bg-white text-emerald-600 hover:bg-gray-100 font-semibold"
+                className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold shadow-lg"
+                scrollToTop={false}
               >
                 Jelajahi Lebih Banyak UMKM
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-emerald-600 font-semibold"
+                className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-bold"
                 onClick={() => window.open('/kontak', '_blank')}
+                scrollToTop={false}
               >
                 Daftarkan Usaha Anda
               </Button>

@@ -267,7 +267,8 @@ const NewsPage: React.FC = () => {
                 <div className="lg:hidden">
                   <button
                     onClick={() => setShowMobileFilter(!showMobileFilter)}
-                    className="w-full px-4 py-4 rounded-xl bg-white/90 backdrop-blur-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all duration-300 text-base shadow-lg flex items-center justify-between"
+                    className="w-full px-4 py-4 rounded-xl bg-white/90 backdrop-blur-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all duration-300 text-base shadow-lg flex items-center justify-between font-medium"
+                    data-scroll-to-top="false"
                   >
                     <div className="flex items-center">
                       <Filter className="h-5 w-5 mr-2 text-emerald-600" />
@@ -283,16 +284,18 @@ const NewsPage: React.FC = () => {
                         <button
                           key={category.value}
                           onClick={() => handleCategorySelect(category.value)}
-                          className={`w-full px-4 py-3 text-left hover:bg-emerald-50 transition-colors text-gray-800 border-b border-gray-100 last:border-0 ${
-                            selectedCategory === category.value ? 'bg-emerald-50 text-emerald-800 font-semibold' : ''
+                         className={`w-full px-4 py-3 text-left hover:bg-emerald-50 transition-colors text-gray-800 border-b border-gray-100 last:border-0 font-medium ${
+                           selectedCategory === category.value ? 'bg-emerald-50 text-emerald-800 font-bold' : ''
                           }`}
+                         data-scroll-to-top="false"
                         >
                           {category.label} ({category.count})
                         </button>
                       ))}
                       <button
                         onClick={() => setShowMobileFilter(false)}
-                        className="w-full px-4 py-3 bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors flex items-center justify-center"
+                        className="w-full px-4 py-3 bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors flex items-center justify-center font-medium"
+                        data-scroll-to-top="false"
                       >
                         <X className="h-4 w-4 mr-2" />
                         Tutup
@@ -370,7 +373,7 @@ const NewsPage: React.FC = () => {
                     <Button 
                       variant="primary" 
                       size="lg" 
-                      className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl"
                       icon={ArrowRight}
                     >
                       Baca Artikel Lengkap
@@ -466,7 +469,7 @@ const NewsPage: React.FC = () => {
                       <Button 
                         variant="outline" 
                         size="sm"
-                        className="w-full border-emerald-500 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all duration-200 rounded-lg font-medium"
+                        className="w-full font-semibold"
                       >
                         Baca Artikel
                       </Button>
@@ -489,7 +492,7 @@ const NewsPage: React.FC = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="px-8 py-4 border-emerald-500 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all duration-300 rounded-xl font-semibold"
+                className="px-8 py-4 rounded-xl font-bold"
               >
                 Muat Lebih Banyak Berita
               </Button>
@@ -566,7 +569,8 @@ const NewsPage: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
+                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 cursor-pointer"
+                  data-scroll-to-top="false"
                 >
                   <div className="text-4xl mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>

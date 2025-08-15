@@ -193,7 +193,8 @@ const NewsDetailPage: React.FC = () => {
               variant="ghost"
               icon={ArrowLeft}
               onClick={() => navigate('/news')}
-              className="mb-8 text-white/80 hover:text-white hover:bg-white/20 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-lg transition-all duration-300"
+              className="mb-8 text-white/90 hover:text-white hover:bg-white/20 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-lg transition-all duration-300 font-semibold"
+              scrollToTop={false}
             >
               Kembali ke Berita
             </Button>
@@ -245,16 +246,18 @@ const NewsDetailPage: React.FC = () => {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={handleLike}
-                    className={`flex items-center space-x-2 transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 ${
+                    className={`flex items-center space-x-2 transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 font-semibold ${
                       isLiked ? 'text-red-300 hover:text-red-200' : 'text-white/90 hover:text-white'
                     }`}
+                    data-scroll-to-top="false"
                   >
                     <Heart className={`h-5 w-5 ${isLiked ? 'fill-current' : ''}`} />
                     <span className="font-medium">Suka</span>
                   </button>
                   <button
                     onClick={handleShare}
-                    className="flex items-center space-x-2 text-white/90 hover:text-white transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30"
+                    className="flex items-center space-x-2 text-white/90 hover:text-white transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 font-semibold"
+                    data-scroll-to-top="false"
                   >
                     <Share2 className="h-5 w-5" />
                     <span className="font-medium">Bagikan</span>
@@ -305,18 +308,20 @@ const NewsDetailPage: React.FC = () => {
                     <div className="flex space-x-2">
                       <button
                         onClick={handleLike}
-                        className={`px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 ${
+                        className={`px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 font-semibold ${
                           isLiked 
-                            ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
-                            : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-red-100 dark:hover:bg-red-900/30'
+                            ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-700'
+                            : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-red-100 dark:hover:bg-red-900/30 border border-emerald-200 dark:border-emerald-700 hover:border-red-200 dark:hover:border-red-700'
                         }`}
+                        data-scroll-to-top="false"
                       >
                         <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
                         <span>Suka</span>
                       </button>
                       <button
                         onClick={handleShare}
-                        className="px-4 py-2 rounded-lg flex items-center space-x-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-all duration-300"
+                        className="px-4 py-2 rounded-lg flex items-center space-x-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-all duration-300 font-semibold border border-emerald-200 dark:border-emerald-700"
+                        data-scroll-to-top="false"
                       >
                         <Share2 className="h-4 w-4" />
                         <span>Bagikan</span>
@@ -407,7 +412,7 @@ const NewsDetailPage: React.FC = () => {
                       <Button 
                         variant="outline" 
                         size="sm"
-                        className="w-full border-emerald-500 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all duration-200 rounded-lg font-medium"
+                        className="w-full border-emerald-500 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all duration-200 rounded-lg font-semibold"
                       >
                         Baca Artikel
                       </Button>
@@ -420,7 +425,9 @@ const NewsDetailPage: React.FC = () => {
             <div className="text-center mt-12">
               <Button
                 onClick={() => navigate('/news')}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                variant="primary"
+                size="lg"
+                className="px-8 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl"
               >
                 Lihat Semua Berita
               </Button>
@@ -587,10 +594,14 @@ const NewsDetailPage: React.FC = () => {
                       'Informasi Program Desa',
                       'Konsultasi KKN'
                     ].map((service, index) => (
-                      <div key={index} className="flex items-center text-emerald-100">
+                      <button 
+                        key={index} 
+                        className="flex items-center text-emerald-100 hover:text-white transition-colors duration-200 text-left w-full py-1"
+                        data-scroll-to-top="false"
+                      >
                         <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3"></div>
                         <span>{service}</span>
-                      </div>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -619,12 +630,9 @@ const NewsDetailPage: React.FC = () => {
     {/* Tombol utama (CTA) */}
     <Button
   onClick={() => navigate('/news')}
-  className="
-    bg-white text-emerald-700 hover:bg-emerald-50
-    font-bold py-4 px-8 rounded-xl transition-all duration-300
-    shadow-lg hover:shadow-xl
-    focus:outline-none focus:ring-4 focus:ring-emerald-200/60
-  "
+  variant="secondary"
+  size="lg"
+  className="bg-white text-emerald-700 hover:bg-emerald-50 font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl"
 >
   Lihat Berita Lainnya
 </Button>
@@ -632,11 +640,8 @@ const NewsDetailPage: React.FC = () => {
 <Button
   onClick={() => navigate('/')}
   variant="outline"
-  className={
-    "border-2 border-white text-white bg-transparent hover:bg-white/90 hover:text-emerald-700 " +
-    "font-bold py-4 px-8 rounded-xl transition-all duration-300 " +
-    "focus:outline-none focus:ring-4 focus:ring-white/30"
-  }
+  size="lg"
+  className="border-2 border-white text-white bg-transparent hover:bg-white/90 hover:text-emerald-700 font-bold py-4 px-8 rounded-xl"
 >
   Kembali ke Beranda
 </Button>
