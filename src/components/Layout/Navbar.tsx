@@ -94,9 +94,10 @@ const Navbar: React.FC = () => {
               onClick={toggleTheme}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 shouldUseWhiteText
-                  ? 'bg-white/10 text-white hover:bg-white/20'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                  : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 border border-emerald-200 dark:border-emerald-700'
               }`}
+              data-scroll-to-top="false"
             >
               {theme === 'light' ? (
                 <Moon className="h-5 w-5" />
@@ -112,9 +113,10 @@ const Navbar: React.FC = () => {
               onClick={toggleTheme}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 shouldUseWhiteText
-                  ? 'bg-white/10 text-white hover:bg-white/20'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                  : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 border border-emerald-200 dark:border-emerald-700'
               }`}
+              data-scroll-to-top="false"
             >
               {theme === 'light' ? (
                 <Moon className="h-5 w-5" />
@@ -126,9 +128,10 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-lg transition-colors duration-200 ${
                 shouldUseWhiteText
-                  ? 'bg-white/10 text-white hover:bg-white/20'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                  : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 border border-emerald-200 dark:border-emerald-700'
               }`}
+              data-scroll-to-top="false"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -153,8 +156,8 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? 'bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 dark:hover:text-primary-400'
+                    ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:text-emerald-600 dark:hover:text-emerald-400 border border-transparent hover:border-emerald-200 dark:hover:border-emerald-700'
                 }`}
               >
                 {item.name}
