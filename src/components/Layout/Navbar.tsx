@@ -23,145 +23,169 @@ const Navbar: React.FC = () => {
     { name: 'Kontak', path: '/contact' },
   ];
 
-  // Check if current page is Home
   const isHomePage = location.pathname === '/';
 
-  // Determine if navbar should have background
-  const hasBackground = isScrolled || isOpen;
-
-  // Determine text color - white only on home page, when not scrolled, and menu is closed
-  const shouldUseWhiteText = isHomePage && !isScrolled && !isOpen;
+  // Simplified background logic - always show background except home page when not scrolled
+  const showSolidBackground = !isHomePage || isScrolled || isOpen;
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        hasBackground
-          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-2'
-          : 'bg-transparent py-4'
-      }`}
+        showSolidBackground
+          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg'
+          : 'bg-gradient-to-b from-black/20 to-transparent'
+      } py-3`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-3">
-            <img
-              src={logoUrl}
-              alt="Logo Desa Cikadu"
-              className="h-10 w-10 sm:h-12 sm:w-12 transition-all duration-300"
-            />
+        <div className="flex justify-between items-center h-16">
+          {/* Logo Section */}
+          <Link to="/" className="flex items-center space-x-3 flex-shrink-0">
+            <div className="relative">
+              <img
+                src={logoUrl}
+                alt="Logo Desa Cikadu"
+                className="h-10 w-10 sm:h-12 sm:w-12 transition-all duration-300 drop-shadow-sm"
+              />
+            </div>
+            <div className="hidden sm:block">
+              <span
+                className={`text-xl font-bold transition-colors duration-300 ${
+                  showSolidBackground
+                    ? 'text-gray-900 dark:text-white'
+                    : 'text-white drop-shadow-md'
+                }`}
+              >
+                Desa Cikadu
+              </span>
+              <p
+                className={`text-xs transition-colors duration-300 ${
+                  showSolidBackground
+                    ? 'text-gray-600 dark:text-gray-400'
+                    : 'text-white/80 drop-shadow-sm'
+                }`}
+              >
+                Pelabuhanratu, Sukabumi
+              </p>
+            </div>
+            {/* Mobile title */}
             <span
-              className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${
-                shouldUseWhiteText
-                  ? 'text-white'
-                  : 'text-gray-900 dark:text-white'
+              className={`sm:hidden text-lg font-bold transition-colors duration-300 ${
+                showSolidBackground
+                  ? 'text-gray-900 dark:text-white'
+                  : 'text-white drop-shadow-md'
               }`}
             >
-              KKN Desa Cikadu
+              Desa Cikadu
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative text-sm font-medium transition-colors duration-200 ${
+                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   location.pathname === item.path
-                    ? shouldUseWhiteText
-                      ? 'text-cyan-400'
-                      : 'text-primary-600 dark:text-primary-400'
-                    : shouldUseWhiteText
-                    ? 'text-white hover:text-cyan-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                    ? showSolidBackground
+                      ? 'bg-emerald-600 text-white shadow-md'
+                      : 'bg-white/20 text-white backdrop-blur-sm border border-white/30'
+                    : showSolidBackground
+                    ? 'text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:text-emerald-600 dark:hover:text-emerald-400'
+                    : 'text-white/90 hover:text-white hover:bg-white/10 backdrop-blur-sm'
                 }`}
               >
                 {item.name}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 ${
-                      shouldUseWhiteText
-                        ? 'bg-cyan-400'
-                        : 'bg-primary-600 dark:bg-primary-400'
-                    }`}
-                  />
-                )}
               </Link>
             ))}
-            <button
-              onClick={toggleTheme}
-              className={`p-2 rounded-lg transition-colors duration-200 ${
-                shouldUseWhiteText
-                  ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
-                  : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 border border-emerald-200 dark:border-emerald-700'
-              }`}
-              data-scroll-to-top="false"
-            >
-              {theme === 'light' ? (
-                <Moon className="h-5 w-5" />
-              ) : (
-                <Sun className="h-5 w-5" />
-              )}
-            </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <button
+          {/* Action Buttons */}
+          <div className="flex items-center space-x-2">
+            {/* Theme Toggle Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className={`p-2 rounded-lg transition-colors duration-200 ${
-                shouldUseWhiteText
-                  ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
-                  : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 border border-emerald-200 dark:border-emerald-700'
+              className={`p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ${
+                showSolidBackground
+                  ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 shadow-sm border border-emerald-200 dark:border-emerald-700/50'
+                  : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20 shadow-lg'
               }`}
-              data-scroll-to-top="false"
+              aria-label="Toggle theme"
             >
-              {theme === 'light' ? (
-                <Moon className="h-5 w-5" />
-              ) : (
-                <Sun className="h-5 w-5" />
-              )}
-            </button>
-            <button
+              <motion.div
+                initial={false}
+                animate={{ rotate: theme === 'dark' ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {theme === 'light' ? (
+                  <Moon className="h-5 w-5" />
+                ) : (
+                  <Sun className="h-5 w-5" />
+                )}
+              </motion.div>
+            </motion.button>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-lg transition-colors duration-200 ${
-                shouldUseWhiteText
-                  ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
-                  : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 border border-emerald-200 dark:border-emerald-700'
+              className={`md:hidden p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ${
+                showSolidBackground
+                  ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 shadow-sm border border-emerald-200 dark:border-emerald-700/50'
+                  : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20 shadow-lg'
               }`}
-              data-scroll-to-top="false"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+              <motion.div
+                initial={false}
+                animate={{ rotate: isOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </motion.div>
+            </motion.button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Menu */}
         <motion.div
           initial={false}
-          animate={{ height: isOpen ? 'auto' : 0 }}
+          animate={{ 
+            height: isOpen ? 'auto' : 0,
+            opacity: isOpen ? 1 : 0
+          }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
           className="md:hidden overflow-hidden"
         >
-          <div className="py-4 space-y-1">
-            {navItems.map((item) => (
-              <Link
+          <div className="pt-4 pb-6 space-y-2">
+            {navItems.map((item, index) => (
+              <motion.div
                 key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === item.path
-                    ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:text-emerald-600 dark:hover:text-emerald-400 border border-transparent hover:border-emerald-200 dark:hover:border-emerald-700'
-                }`}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : -20 }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
               >
-                {item.name}
-              </Link>
+                <Link
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
+                    location.pathname === item.path
+                      ? 'bg-emerald-600 text-white shadow-md transform scale-105'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:text-emerald-600 dark:hover:text-emerald-400 hover:pl-6'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
           </div>
         </motion.div>
