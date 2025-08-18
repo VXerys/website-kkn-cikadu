@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
                     : 'text-white drop-shadow-md'
                 }`}
               >
-                Desa Cikadu
+                KKN Desa Cikadu
               </span>
               <p
                 className={`text-xs transition-colors duration-300 ${
