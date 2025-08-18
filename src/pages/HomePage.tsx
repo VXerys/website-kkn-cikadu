@@ -116,8 +116,8 @@ const HomePage: React.FC = () => {
           >
             <button
               onClick={() => navigate('/news')}
-              className="group relative px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
               data-scroll-to-top="true"
+              className="group relative px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Jelajahi Program KKN
@@ -128,8 +128,8 @@ const HomePage: React.FC = () => {
 
             <button
               onClick={() => navigate('/about')}
-              className="group px-8 py-4 border-2 border-white/80 hover:border-white text-white hover:bg-white/10 font-bold text-lg rounded-xl backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
               data-scroll-to-top="true"
+              className="group px-8 py-4 border-2 border-white/80 hover:border-white text-white hover:bg-white/10 font-bold text-lg rounded-xl backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
             >
               Tentang Desa
             </button>
@@ -356,8 +356,8 @@ const HomePage: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 onClick={() => navigate('/map')}
-                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-emerald-700 hover:bg-emerald-50 shadow-2xl hover:shadow-emerald-200/50 font-bold rounded-xl transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg overflow-hidden"
                 data-scroll-to-top="true"
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-emerald-700 hover:bg-emerald-50 shadow-2xl hover:shadow-emerald-200/50 font-bold rounded-xl transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <MapPin className="h-5 w-5" />
@@ -371,8 +371,8 @@ const HomePage: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 onClick={() => navigate('/contact')}
-                className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/60 hover:border-white text-white hover:bg-white/10 font-bold rounded-xl backdrop-blur-md shadow-lg hover:shadow-white/20 transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg"
                 data-scroll-to-top="true"
+                className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/60 hover:border-white text-white hover:bg-white/10 font-bold rounded-xl backdrop-blur-md shadow-lg hover:shadow-white/20 transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg"
               >
                 Hubungi Desa
               </motion.button>

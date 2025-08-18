@@ -42,6 +42,7 @@ export type Business = {
   location: string;
   image_url: string;
   created_at: string;
+  category?: string;
 };
 
 export type Feedback = {

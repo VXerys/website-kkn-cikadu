@@ -183,7 +183,7 @@ const MapPage: React.FC = () => {
               variant={showNews ? 'primary' : 'outline'}
               icon={Newspaper}
               onClick={() => setShowNews(!showNews)}
-              scrollToTop={false}
+              disableScrollToTop={true}
             >
               Lokasi Berita
             </Button>
@@ -191,7 +191,7 @@ const MapPage: React.FC = () => {
               variant={showBusinesses ? 'primary' : 'outline'}
               icon={Building}
               onClick={() => setShowBusinesses(!showBusinesses)}
-              scrollToTop={false}
+              disableScrollToTop={true}
             >
               Usaha Lokal
             </Button>
@@ -199,7 +199,7 @@ const MapPage: React.FC = () => {
               variant={showVillageCenter ? 'primary' : 'outline'}
               icon={MapPin}
               onClick={() => setShowVillageCenter(!showVillageCenter)}
-              scrollToTop={false}
+              disableScrollToTop={true}
             >
               Pusat Desa
             </Button>
@@ -207,7 +207,7 @@ const MapPage: React.FC = () => {
               variant="ghost"
               icon={Navigation}
               onClick={() => window.navigator.geolocation?.getCurrentPosition(() => {})}
-              scrollToTop={false}
+              disableScrollToTop={true}
             >
               Lokasi Saya
             </Button>
@@ -299,15 +299,15 @@ const MapPage: React.FC = () => {
                     <div className="flex space-x-2">
                       <button
                         onClick={() => window.open(`tel:${business.contact}`, '_self')}
-                        className="text-blue-600 hover:text-blue-800 text-sm font-semibold bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded transition-colors"
                         data-scroll-to-top="false"
+                        className="text-blue-600 hover:text-blue-800 text-sm font-semibold bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded transition-colors"
                       >
                         Hubungi
                       </button>
                       <button
                         onClick={() => window.open(`/business#${business.id}`, '_blank')}
-                        className="text-blue-600 hover:text-blue-800 text-sm font-semibold bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded transition-colors"
                         data-scroll-to-top="false"
+                        className="text-blue-600 hover:text-blue-800 text-sm font-semibold bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded transition-colors"
                       >
                         Detail →
                       </button>
@@ -403,8 +403,8 @@ const MapPage: React.FC = () => {
                 variant="primary"
                 size="lg"
                 className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold shadow-lg"
-                onClick={() => window.open('/contact', '_blank')}
-                scrollToTop={false}
+               onClick={() => navigate('/contact')}
+               disableScrollToTop={false}
               >
                 Rencanakan Kunjungan
               </Button>
@@ -412,8 +412,8 @@ const MapPage: React.FC = () => {
                 variant="outline"
                 size="lg"
                 className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-bold"
-                onClick={() => window.open('/news', '_blank')}
-                scrollToTop={false}
+               onClick={() => navigate('/news')}
+               disableScrollToTop={false}
               >
                 Baca Berita Terkini
               </Button>

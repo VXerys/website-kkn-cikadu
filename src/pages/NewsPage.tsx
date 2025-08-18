@@ -440,7 +440,9 @@ const NewsPage: React.FC = () => {
                         size="sm"
                         className="w-full border-blue-500 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200 font-medium"
                         onClick={() => handleCardClick(article.id)}
-                      >
+                        disableScrollToTop={false}
+                       onClick={() => handleCardClick(filteredArticles[0].id)}
+                       disableScrollToTop={false}
                         Baca Artikel
                       </Button>
                     </div>
@@ -463,6 +465,7 @@ const NewsPage: React.FC = () => {
                 variant="outline"
                 size="lg"
                 className="px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold border-blue-500 text-blue-600 hover:bg-blue-600 hover:text-white"
+                disableScrollToTop={false}
               >
                 Muat Lebih Banyak Berita
               </Button>
@@ -546,6 +549,7 @@ const NewsPage: React.FC = () => {
                 size="lg"
                 className="bg-white text-blue-700 hover:bg-blue-50 font-semibold shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/contact')}
+                disableScrollToTop={false}
               >
                 Hubungi Kami
               </Button>
@@ -554,6 +558,7 @@ const NewsPage: React.FC = () => {
                 size="lg"
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-700 font-semibold px-6 md:px-8 py-3 md:py-4"
                 onClick={() => navigate('/')}
+                disableScrollToTop={false}
               >
                 Kembali ke Beranda
               </Button>

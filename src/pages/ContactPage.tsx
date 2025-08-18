@@ -187,7 +187,7 @@ const ContactPage: React.FC = () => {
                     icon={Send}
                     disabled={isSubmitting}
                     className="w-full hover:shadow-xl transition-all duration-300 font-bold"
-                    scrollToTop={false}
+                    disableScrollToTop={true}
                   >
                     {isSubmitting ? 'Mengirim dengan Cinta...' : 'Kirim Pesan Hati'}
                   </Button>
@@ -263,7 +263,7 @@ const ContactPage: React.FC = () => {
                       size="sm"
                       className="mt-2"
                       onClick={() => window.open('/map', '_blank')}
-                      scrollToTop={false}
+                      disableScrollToTop={true}
                     >
                       Lihat Peta Lengkap
                     </Button>
@@ -357,8 +357,8 @@ const ContactPage: React.FC = () => {
               variant="secondary"
               size="lg"
               className="bg-white text-emerald-600 hover:bg-emerald-50 hover:shadow-xl transition-all duration-300 font-bold"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              scrollToTop={false}
+              onClick={() => navigate('/')}
+              disableScrollToTop={false}
             >
               Mulai Percakapan Sekarang
             </Button>

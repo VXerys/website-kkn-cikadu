@@ -441,7 +441,7 @@ const BusinessPage: React.FC = () => {
                         icon={MessageCircle}
                         onClick={() => handleWhatsApp(filteredBusinesses[0].contact, filteredBusinesses[0].name)}
                         className="w-full bg-emerald-600 hover:bg-emerald-700"
-                        scrollToTop={false}
+                        disableScrollToTop={true}
                       >
                         Hubungi via WhatsApp
                       </Button>
@@ -535,7 +535,7 @@ const BusinessPage: React.FC = () => {
                           icon={MessageCircle}
                           onClick={() => handleWhatsApp(business.contact, business.name)}
                           className="w-full bg-emerald-600 hover:bg-emerald-700"
-                          scrollToTop={false}
+                          disableScrollToTop={true}
                         >
                           Hubungi via WhatsApp
                         </Button>
@@ -570,8 +570,8 @@ const BusinessPage: React.FC = () => {
                 variant="primary"
                 size="lg"
                 className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold shadow-lg"
-                onClick={() => window.open('/kontak', '_blank')}
-                scrollToTop={false}
+                onClick={() => navigate('/contact')}
+                disableScrollToTop={false}
               >
                 Informasi Pendaftaran
               </Button>
@@ -579,8 +579,8 @@ const BusinessPage: React.FC = () => {
                 variant="outline"
                 size="lg"
                 className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-bold"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                scrollToTop={false}
+                onClick={() => navigate('/news')}
+                disableScrollToTop={false}
               >
                 Kembali ke Atas
               </Button>
