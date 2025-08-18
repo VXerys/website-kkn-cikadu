@@ -1,10 +1,100 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Phone, MapPin, ExternalLink, Search, Filter, Star, Users, TrendingUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Phone, 
+  MapPin, 
+  Search, 
+  Filter, 
+  Star, 
+  Users, 
+  TrendingUp, 
+  ChevronDown,
+  MessageCircle,
+  Building2,
+  Calendar,
+  BarChart3
+} from 'lucide-react';
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 import { supabase, Business } from '../services/supabase';
+
+// Custom Dropdown Component
+interface DropdownProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: Array<{ value: string; label: string }>;
+  placeholder?: string;
+  icon?: React.ComponentType<any>;
+}
+
+const CustomDropdown: React.FC<DropdownProps> = ({
+  value,
+  onChange,
+  options,
+  placeholder,
+  icon: Icon
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const selectedOption = options.find(option => option.value === value);
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium hover:bg-emerald-50 dark:hover:bg-gray-700 transition-colors"
+      >
+        <div className="flex items-center">
+          {Icon && <Icon className="h-5 w-5 mr-3 text-emerald-600" />}
+          <span>{selectedOption?.label || placeholder}</span>
+        </div>
+        <ChevronDown 
+          className={`h-5 w-5 text-gray-400 transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`} 
+        />
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 border border-emerald-200 dark:border-emerald-600 rounded-xl shadow-xl z-50 overflow-hidden"
+          >
+            <div className="max-h-60 overflow-y-auto">
+              {options.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => {
+                    onChange(option.value);
+                    setIsOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-3 hover:bg-emerald-50 dark:hover:bg-gray-700 transition-colors ${
+                    value === option.value 
+                      ? 'bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 font-semibold' 
+                      : 'text-gray-900 dark:text-white'
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {isOpen && (
+        <div 
+          className="fixed inset-0 z-40" 
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+    </div>
+  );
+};
 
 const BusinessPage: React.FC = () => {
   const [businesses, setBusinesses] = useState<Business[]>([]);
@@ -14,13 +104,13 @@ const BusinessPage: React.FC = () => {
   const [sortBy, setSortBy] = useState('name');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Data UMKM dengan bahasa formal dan profesional
+  // Data UMKM dengan konten yang lebih formal dan informatif
   const mockBusinesses: Business[] = [
     {
       id: '1',
       name: 'Kebun Organik Lembah Hijau',
       description:
-        'Usaha pertanian organik yang menghasilkan sayuran segar, rempah-rempah berkualitas, dan telur ayam kampung. Menggunakan metode pertanian berkelanjutan untuk mendukung ketahanan pangan lokal.',
+        'Pusat produksi pertanian organik yang menghasilkan sayuran berkualitas tinggi, rempah-rempah, dan telur ayam kampung. Menerapkan sistem pertanian berkelanjutan untuk mendukung ketahanan pangan lokal dengan standar kualitas terjamin.',
       contact: '+62 812-3456-7890',
       location: 'Kawasan Utara Desa Cikadu',
       image_url:
@@ -32,7 +122,7 @@ const BusinessPage: React.FC = () => {
       id: '2',
       name: 'Sanggar Kerajinan Warisan Nusantara',
       description:
-        'Sentra kerajinan tangan yang memproduksi gerabah, tekstil tradisional, dan ukiran kayu. Mengembangkan keterampilan kerajinan turun-temurun dengan sentuhan desain modern.',
+        'Sentra produksi kerajinan tradisional yang menghasilkan gerabah, tekstil, dan ukiran kayu berkualitas ekspor. Mempertahankan teknik kerajinan turun-temurun dengan inovasi desain kontemporer untuk pasar modern.',
       contact: '+62 813-4567-8901',
       location: 'Pusat Desa Cikadu',
       image_url:
@@ -44,7 +134,7 @@ const BusinessPage: React.FC = () => {
       id: '3',
       name: 'Kafe Pemandangan Gunung',
       description:
-        'Kedai kopi lokal yang menyajikan kopi berkualitas tinggi dan makanan ringan tradisional. Menawarkan suasana nyaman dengan pemandangan alam pegunungan yang indah.',
+        'Usaha kuliner lokal yang menyediakan kopi berkualitas premium dan makanan tradisional. Menawarkan pengalaman kuliner dengan pemandangan alam pegunungan sebagai daya tarik utama untuk wisatawan dan masyarakat lokal.',
       contact: '+62 814-5678-9012',
       location: 'Jalan Utama Desa Cikadu',
       image_url:
@@ -56,7 +146,7 @@ const BusinessPage: React.FC = () => {
       id: '4',
       name: 'Jasa Pemandu Wisata Alam',
       description:
-        'Layanan pemandu wisata profesional untuk aktivitas hiking, pengamatan burung, dan tur budaya. Dipandu oleh masyarakat lokal yang berpengalaman dan berlisensi.',
+        'Layanan pemandu wisata profesional dengan sertifikasi resmi. Menyediakan paket wisata alam, hiking, pengamatan burung, dan tur edukasi budaya lokal dengan pemandu berpengalaman dan berlisensi.',
       contact: '+62 815-6789-0123',
       location: 'Pusat Informasi Wisata Cikadu',
       image_url:
@@ -68,7 +158,7 @@ const BusinessPage: React.FC = () => {
       id: '5',
       name: 'Toko Roti Fajar Berkah',
       description:
-        'Usaha produksi roti dan kue tradisional dengan oven kayu bakar. Menggunakan resep keluarga dan bahan-bahan lokal berkualitas untuk menghasilkan produk yang lezat dan bergizi.',
+        'Usaha produksi roti dan kue tradisional dengan metode pembuatan menggunakan oven kayu bakar. Menggunakan resep turun-temurun dan bahan baku lokal untuk menghasilkan produk berkualitas dengan cita rasa autentik.',
       contact: '+62 816-7890-1234',
       location: 'Kampung Tengah Desa Cikadu',
       image_url:
@@ -80,7 +170,7 @@ const BusinessPage: React.FC = () => {
       id: '6',
       name: 'Apotek Herbal Tradisional',
       description:
-        'Penyedia ramuan herbal dan produk kesehatan alami dari tanaman obat lokal. Melayani konsultasi kesehatan dengan ahli herbal bersertifikat untuk pengobatan tradisional.',
+        'Penyedia produk kesehatan herbal dan ramuan tradisional dari tanaman obat lokal. Melayani konsultasi kesehatan dengan tenaga ahli herbal bersertifikat untuk pengobatan alami dan pencegahan penyakit.',
       contact: '+62 817-8901-2345',
       location: 'Kawasan Timur Desa Cikadu',
       image_url:
@@ -172,12 +262,8 @@ const BusinessPage: React.FC = () => {
     setFilteredBusinesses(filtered);
   };
 
-  const handleCall = (phoneNumber: string) => {
-    window.open(`tel:${phoneNumber}`, '_self');
-  };
-
   const handleWhatsApp = (phoneNumber: string, businessName: string) => {
-    const message = `Halo, saya tertarik dengan ${businessName}. Bisakah Anda memberikan informasi lebih lanjut?`;
+    const message = `Halo, saya ingin mengetahui informasi lebih lanjut tentang ${businessName}. Terima kasih.`;
     const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -214,8 +300,8 @@ const BusinessPage: React.FC = () => {
           >
             <div className="flex items-center justify-center mb-6">
               <div className="flex items-center bg-emerald-600 text-white px-4 py-2 rounded-full">
-                <TrendingUp className="h-5 w-5 mr-2" />
-                <span className="font-semibold">Ekonomi Desa</span>
+                <Building2 className="h-5 w-5 mr-2" />
+                <span className="font-semibold">Direktori UMKM</span>
               </div>
             </div>
             
@@ -225,28 +311,28 @@ const BusinessPage: React.FC = () => {
             </h1>
             
             <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              Mendukung pertumbuhan ekonomi lokal melalui pemberdayaan UMKM yang berkelanjutan 
-              dan pemanfaatan potensi sumber daya desa yang optimal untuk kesejahteraan masyarakat.
+              Informasi lengkap mengenai usaha mikro, kecil, dan menengah yang beroperasi di Desa Cikadu, 
+              Kecamatan Pelabuhanratu, Kabupaten Sukabumi, Jawa Barat.
             </p>
             
             {/* Statistics */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-3xl mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <div className="text-3xl font-bold text-white mb-2">{filteredBusinesses.length}+</div>
-                <div className="text-gray-200">UMKM Aktif</div>
+                <div className="text-3xl font-bold text-white mb-2">{filteredBusinesses.length}</div>
+                <div className="text-gray-200">UMKM Terdaftar</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-3xl font-bold text-white mb-2">5</div>
                 <div className="text-gray-200">Kategori Usaha</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <div className="text-3xl font-bold text-white mb-2">100+</div>
-                <div className="text-gray-200">Lapangan Kerja</div>
+                <div className="text-3xl font-bold text-white mb-2">150+</div>
+                <div className="text-gray-200">Tenaga Kerja</div>
               </div>
             </div>
           </motion.div>
 
-          {/* Search and Filter Section - Responsive */}
+          {/* Search and Filter Section - Responsive dengan Custom Dropdown */}
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -254,7 +340,6 @@ const BusinessPage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl"
             >
-              {/* Mobile-first responsive layout */}
               <div className="space-y-4">
                 {/* Search Bar */}
                 <div className="relative">
@@ -268,40 +353,23 @@ const BusinessPage: React.FC = () => {
                   />
                 </div>
                 
-                {/* Filters - Responsive Grid */}
+                {/* Custom Dropdowns - Responsive Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Category Filter */}
-                  <div className="relative">
-                    <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
-                    <select
-                      value={selectedCategory}
-                      onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="w-full pl-10 pr-10 py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none cursor-pointer font-medium"
-                      data-scroll-to-top="false"
-                    >
-                      {categoryOptions.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  <CustomDropdown
+                    value={selectedCategory}
+                    onChange={setSelectedCategory}
+                    options={categoryOptions}
+                    placeholder="Pilih Kategori"
+                    icon={Filter}
+                  />
                   
-                  {/* Sort Filter */}
-                  <div className="relative">
-                    <select
-                      value={sortBy}
-                      onChange={(e) => setSortBy(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none cursor-pointer font-medium"
-                      data-scroll-to-top="false"
-                    >
-                      {sortOptions.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          Urutkan: {option.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  <CustomDropdown
+                    value={sortBy}
+                    onChange={setSortBy}
+                    options={sortOptions}
+                    placeholder="Urutkan Data"
+                    icon={BarChart3}
+                  />
                 </div>
               </div>
             </motion.div>
@@ -326,10 +394,10 @@ const BusinessPage: React.FC = () => {
                   <span className="font-semibold">UMKM Unggulan</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                  Usaha Terdepan di Desa Cikadu
+                  Profil Usaha Terdepan
                 </h2>
                 <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                  Menampilkan UMKM dengan kontribusi signifikan terhadap perekonomian desa
+                  Menampilkan UMKM dengan kontribusi signifikan dalam perekonomian desa
                 </p>
               </div>
               
@@ -366,25 +434,16 @@ const BusinessPage: React.FC = () => {
                       {filteredBusinesses[0].description}
                     </p>
                     
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col gap-4">
                       <Button
                         variant="primary"
                         size="lg"
-                        icon={Phone}
-                        onClick={() => handleCall(filteredBusinesses[0].contact)}
-                        className="flex-1"
-                        scrollToTop={false}
-                      >
-                        Hubungi Langsung
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="lg"
-                        icon={ExternalLink}
+                        icon={MessageCircle}
                         onClick={() => handleWhatsApp(filteredBusinesses[0].contact, filteredBusinesses[0].name)}
+                        className="w-full bg-emerald-600 hover:bg-emerald-700"
                         scrollToTop={false}
                       >
-                        WhatsApp
+                        Hubungi via WhatsApp
                       </Button>
                     </div>
                   </div>
@@ -407,13 +466,13 @@ const BusinessPage: React.FC = () => {
           >
             <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-4">
               <Users className="h-4 w-4 mr-2" />
-              <span className="font-semibold">Direktori UMKM</span>
+              <span className="font-semibold">Direktori Lengkap</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Semua Usaha Lokal Desa Cikadu
+              Semua UMKM Terdaftar
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Kolaborasi dan dukungan untuk kemajuan ekonomi berkelanjutan
+              Daftar lengkap usaha mikro, kecil, dan menengah yang beroperasi di Desa Cikadu
             </p>
           </motion.div>
 
@@ -424,10 +483,10 @@ const BusinessPage: React.FC = () => {
                   <Search className="h-16 w-16 text-gray-400 mx-auto" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Tidak Ada Hasil Pencarian
+                  Data Tidak Ditemukan
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Silakan coba kata kunci yang berbeda atau ubah filter pencarian
+                  Silakan ubah kata kunci pencarian atau filter yang digunakan
                 </p>
               </div>
             </div>
@@ -469,38 +528,17 @@ const BusinessPage: React.FC = () => {
                         {business.description}
                       </p>
                       
-                      <div className="flex flex-col gap-3">
+                      <div className="space-y-3">
                         <Button
                           variant="primary"
                           size="sm"
-                          icon={Phone}
-                          onClick={() => handleCall(business.contact)}
-                          className="w-full"
+                          icon={MessageCircle}
+                          onClick={() => handleWhatsApp(business.contact, business.name)}
+                          className="w-full bg-emerald-600 hover:bg-emerald-700"
                           scrollToTop={false}
                         >
-                          Hubungi Sekarang
+                          Hubungi via WhatsApp
                         </Button>
-                        <div className="grid grid-cols-2 gap-2">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => handleWhatsApp(business.contact, business.name)}
-                            className="text-xs"
-                            scrollToTop={false}
-                          >
-                            WhatsApp
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            icon={ExternalLink}
-                            onClick={() => window.open(`/map?business=${business.id}`, '_blank')}
-                            className="text-xs"
-                            scrollToTop={false}
-                          >
-                            Lokasi
-                          </Button>
-                        </div>
                       </div>
                     </div>
                   </Card>
@@ -511,7 +549,7 @@ const BusinessPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Information Section - Mengganti CTA dengan informasi yang lebih formal */}
       <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -521,30 +559,30 @@ const BusinessPage: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Bergabung Memajukan Ekonomi Desa
+              Informasi Pendaftaran UMKM
             </h2>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Setiap dukungan Anda terhadap UMKM lokal adalah investasi untuk kemajuan 
-              ekonomi berkelanjutan dan pemberdayaan masyarakat Desa Cikadu.
+              Untuk mendaftarkan usaha Anda dalam direktori UMKM Desa Cikadu atau memperoleh informasi 
+              lebih lanjut mengenai program pemberdayaan ekonomi desa, silakan menghubungi perangkat desa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold shadow-lg"
+                onClick={() => window.open('/kontak', '_blank')}
                 scrollToTop={false}
               >
-                Jelajahi Lebih Banyak UMKM
+                Informasi Pendaftaran
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-bold"
-                onClick={() => window.open('/kontak', '_blank')}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 scrollToTop={false}
               >
-                Daftarkan Usaha Anda
+                Kembali ke Atas
               </Button>
             </div>
           </motion.div>
