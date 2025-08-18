@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
                   : 'text-white drop-shadow-md'
               }`}
             >
-              Desa Cikadu
+              KKN Desa Cikadu
             </span>
           </Link>
 
