@@ -87,6 +87,7 @@ const Navbar: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
+                data-scroll-to-top="true"
                 className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   location.pathname === item.path
                     ? showSolidBackground
@@ -109,6 +110,7 @@ const Navbar: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
+              data-scroll-to-top="false"
               className={`p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ${
                 showSolidBackground
                   ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 shadow-sm border border-emerald-200 dark:border-emerald-700/50'
@@ -134,6 +136,7 @@ const Navbar: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
+              data-scroll-to-top="false"
               className={`md:hidden p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ${
                 showSolidBackground
                   ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-800/50 shadow-sm border border-emerald-200 dark:border-emerald-700/50'
@@ -177,6 +180,7 @@ const Navbar: React.FC = () => {
                 <Link
                   to={item.path}
                   onClick={() => setIsOpen(false)}
+                  data-scroll-to-top="true"
                   className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
                     location.pathname === item.path
                       ? 'bg-emerald-600 text-white shadow-md transform scale-105'

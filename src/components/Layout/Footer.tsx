@@ -57,8 +57,8 @@ const Footer = () => {
             <div className="flex flex-wrap gap-2 mt-4">
               <button
                 onClick={handleScrollToTop}
-                className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs rounded-md transition-colors duration-200 font-semibold shadow-sm hover:shadow-md"
                 data-scroll-to-top="false"
+                className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs rounded-md transition-colors duration-200 font-semibold shadow-sm hover:shadow-md"
               >
                 Kembali ke Atas
               </button>
@@ -77,8 +77,8 @@ const Footer = () => {
                   <li key={index}>
                     <button
                       onClick={() => handleNavigation(item.path)}
-                      className="flex items-center space-x-2 text-gray-400 hover:text-emerald-400 transition-all duration-200 text-sm lg:text-base group w-full text-left font-medium"
                       data-scroll-to-top="true"
+                      className="flex items-center space-x-2 text-gray-400 hover:text-emerald-400 transition-all duration-200 text-sm lg:text-base group w-full text-left font-medium"
                     >
                       <IconComponent className="h-4 w-4 group-hover:scale-110 transition-transform" />
                       <span className="group-hover:translate-x-1 transition-transform">
@@ -132,8 +132,8 @@ const Footer = () => {
             <div className="pt-2">
               <button
                 onClick={() => handleNavigation('/contact')}
-                className="inline-flex items-center space-x-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-md transition-all duration-200 hover:scale-105 font-semibold shadow-sm hover:shadow-md"
                 data-scroll-to-top="true"
+                className="inline-flex items-center space-x-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-md transition-all duration-200 hover:scale-105 font-semibold shadow-sm hover:shadow-md"
               >
                 <MessageCircle className="h-4 w-4" />
                 <span>Hubungi Kami</span>
@@ -151,9 +151,9 @@ const Footer = () => {
                 href="https://facebook.com/desacikadu"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-scroll-to-top="false"
                 className="p-2 lg:p-3 bg-gray-800 rounded-lg hover:bg-blue-600 transition-all duration-200 hover:scale-105 group shadow-sm hover:shadow-md"
                 aria-label="Facebook"
-                data-scroll-to-top="false"
               >
                 <Facebook className="h-4 w-4 lg:h-5 lg:w-5 group-hover:scale-110 transition-transform" />
               </a>
@@ -161,9 +161,9 @@ const Footer = () => {
                 href="https://instagram.com/desacikadu"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-scroll-to-top="false"
                 className="p-2 lg:p-3 bg-gray-800 rounded-lg hover:bg-pink-600 transition-all duration-200 hover:scale-105 group shadow-sm hover:shadow-md"
                 aria-label="Instagram"
-                data-scroll-to-top="false"
               >
                 <Instagram className="h-4 w-4 lg:h-5 lg:w-5 group-hover:scale-110 transition-transform" />
               </a>
@@ -171,9 +171,9 @@ const Footer = () => {
                 href="https://twitter.com/desacikadu"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-scroll-to-top="false"
                 className="p-2 lg:p-3 bg-gray-800 rounded-lg hover:bg-sky-500 transition-all duration-200 hover:scale-105 group shadow-sm hover:shadow-md"
                 aria-label="Twitter"
-                data-scroll-to-top="false"
               >
                 <Twitter className="h-4 w-4 lg:h-5 lg:w-5 group-hover:scale-110 transition-transform" />
               </a>
@@ -195,22 +195,22 @@ const Footer = () => {
             <div className="flex flex-wrap justify-center sm:justify-end gap-4 text-xs lg:text-sm">
               <button
                 onClick={() => handleNavigation('/privacy')}
-                className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium"
                 data-scroll-to-top="true"
+                className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium"
               >
                 Kebijakan Privasi
               </button>
               <button
                 onClick={() => handleNavigation('/terms')}
-                className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium"
                 data-scroll-to-top="true"
+                className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium"
               >
                 Syarat & Ketentuan
               </button>
               <button
                 onClick={() => handleNavigation('/help')}
-                className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium"
                 data-scroll-to-top="true"
+                className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium"
               >
                 Bantuan
               </button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { useScrollToTop } from '../hooks/useScrollToTop';
+import { useGlobalScrollToTop } from '../hooks/useGlobalScrollToTop';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
 import HomePage from '../pages/HomePage';
@@ -13,7 +13,7 @@ import MapPage from '../pages/MapPage';
 import ContactPage from '../pages/ContactPage';
 
 const AppContent: React.FC = () => {
-  useScrollToTop();
+  useGlobalScrollToTop();
   
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -60,6 +60,7 @@ const AppContent: React.FC = () => {
     </div>
   );
 };
+
 const AppRouter: React.FC = () => {
   return (
     <Router>

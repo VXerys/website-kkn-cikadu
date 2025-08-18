@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DivideIcon as LucideIcon } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
-  scrollToTop?: boolean;
+  disableScrollToTop?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   type = 'button',
   disabled = false,
-  scrollToTop = true,
+  disableScrollToTop = false,
 }) => {
   const baseClasses = 'font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95';
   
@@ -46,16 +46,8 @@ const Button: React.FC<ButtonProps> = ({
     if (onClick) {
       onClick();
     }
-    
-    if (scrollToTop) {
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }, 100);
-    }
   };
+
   return (
     <motion.button
       whileHover={{ scale: disabled ? 1 : 1.02 }}
@@ -63,7 +55,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={handleClick}
       disabled={disabled}
-      data-scroll-to-top={scrollToTop}
+      data-scroll-to-top={disableScrollToTop ? 'false' : 'true'}
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className} flex items-center justify-center space-x-2`}
     >
       {Icon && iconPosition === 'left' && <Icon className="h-5 w-5" />}
