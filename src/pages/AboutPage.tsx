@@ -4,6 +4,9 @@ import { Users, MapPin, Calendar, Award } from 'lucide-react';
 import Card from '../components/UI/Card';
 
 const AboutPage: React.FC = () => {
+  // SVG pattern untuk texture
+  const patternSvg = "data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E";
+
   const stats = [
     { icon: Users, label: 'Jiwa Mulia', value: '2,500+' },
     { icon: MapPin, label: 'Hamparan Surga', value: '15 km²' },
@@ -42,7 +45,10 @@ const AboutPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-green-900/90 via-green-800/75 to-green-700/60"></div>
         
         {/* Pattern Overlay for Texture */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{ backgroundImage: `url(${patternSvg})` }}
+        ></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <motion.div
@@ -318,7 +324,7 @@ const AboutPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Kebersamaan</h3>
                 <p className="text-green-100 leading-relaxed">Membangun komunitas yang solid dan saling mendukung dalam setiap langkah</p>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
