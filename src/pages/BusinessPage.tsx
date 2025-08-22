@@ -588,47 +588,6 @@ const BusinessPage: React.FC = () => {
           )}
         </div>
       </section>
-
-      {/* Information Section - Mengganti CTA dengan informasi yang lebih formal */}
-      <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-blue-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Informasi Pendaftaran UMKM
-            </h2>
-            <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Untuk mendaftarkan usaha Anda dalam direktori UMKM Desa Cikadu
-              atau memperoleh informasi lebih lanjut mengenai program
-              pemberdayaan ekonomi desa, silakan menghubungi perangkat desa.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="primary"
-                size="lg"
-                className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold shadow-lg"
-                onClick={() => navigate('/contact')}
-                disableScrollToTop={false}
-              >
-                Informasi Pendaftaran
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-bold"
-                onClick={() => navigate('/news')}
-                disableScrollToTop={false}
-              >
-                Kembali ke Atas
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };
