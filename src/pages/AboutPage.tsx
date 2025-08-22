@@ -1,29 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, MapPin, Calendar, Award, LucideIcon } from 'lucide-react';
+import { Users, MapPin, Calendar, Award } from 'lucide-react';
 import Card from '../components/UI/Card';
 
-interface StatItem {
-  icon: LucideIcon;
-  label: string;
-  value: string;
-}
-
-interface Tradition {
-  title: string;
-  description: string;
-  image: string;
-}
-
 const AboutPage: React.FC = () => {
-  const stats: StatItem[] = [
+  const stats = [
     { icon: Users, label: 'Jiwa Mulia', value: '2,500+' },
     { icon: MapPin, label: 'Hamparan Surga', value: '15 km²' },
     { icon: Calendar, label: 'Tahun Berdiri', value: '1892' },
     { icon: Award, label: 'Prestasi Gemilang', value: '15+' },
   ];
 
-  const traditions: Tradition[] = [
+  const traditions = [
     {
       title: 'Festival Panen Raya yang Memukau',
       description: 'Perayaan spektakuler warisan leluhur dengan tarian tradisional yang menghipnotis, kuliner khas yang menggugah selera, dan kebersamaan yang menyentuh hati.',
@@ -54,7 +42,7 @@ const AboutPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-green-900/90 via-green-800/75 to-green-700/60"></div>
         
         {/* Pattern Overlay for Texture */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.03\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <motion.div
@@ -74,28 +62,25 @@ const AboutPage: React.FC = () => {
 
           {/* Enhanced Stats Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={`${stat.label}-${index}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group"
-                >
-                  <Card className="p-6 text-center bg-white/95 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl hover:bg-white transform hover:-translate-y-2 transition-all duration-500 hover:scale-105">
-                    <IconComponent className="h-10 w-10 text-green-600 mx-auto mb-3 group-hover:text-green-700 transition-colors duration-300" />
-                    <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-green-800 transition-colors duration-300">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm font-medium text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
-                      {stat.label}
-                    </div>
-                  </Card>
-                </motion.div>
-              );
-            })}
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group"
+              >
+                <Card className="p-6 text-center bg-white/95 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl hover:bg-white transform hover:-translate-y-2 transition-all duration-500 hover:scale-105">
+                  <stat.icon className="h-10 w-10 text-green-600 mx-auto mb-3 group-hover:text-green-700 transition-colors duration-300" />
+                  <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-green-800 transition-colors duration-300">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-medium text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                    {stat.label}
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -183,7 +168,7 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {traditions.map((tradition, index) => (
               <motion.div
-                key={`${tradition.title}-${index}`}
+                key={tradition.title}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -333,7 +318,7 @@ const AboutPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Kebersamaan</h3>
                 <p className="text-green-100 leading-relaxed">Membangun komunitas yang solid dan saling mendukung dalam setiap langkah</p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
