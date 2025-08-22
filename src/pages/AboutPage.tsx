@@ -325,12 +325,11 @@ const AboutPage: React.FC = () => {
                 <h3 className="text-xl font-bold text-white mb-3">Kebersamaan</h3>
                 <p className="text-green-100 leading-relaxed">Membangun komunitas yang solid dan saling mendukung dalam setiap langkah</p>
               </div>
-          
+            </div>
           </motion.div>
         </div>
       </section>
     </div>
   );
-};
 
 export default AboutPage;
