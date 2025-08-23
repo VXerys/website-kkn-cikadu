@@ -199,20 +199,15 @@ const NewsPage: React.FC = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      pendidikan:
-        'bg-blue-100 text-blue-900 border border-blue-300 dark:bg-blue-800 dark:text-blue-100 dark:border-blue-600',
-      infrastruktur:
-        'bg-gray-100 text-gray-900 border border-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600',
-      budaya:
-        'bg-purple-100 text-purple-900 border border-purple-300 dark:bg-purple-800 dark:text-purple-100 dark:border-purple-600',
-      ekonomi:
-        'bg-yellow-100 text-yellow-900 border border-yellow-300 dark:bg-yellow-800 dark:text-yellow-100 dark:border-yellow-600',
-      lingkungan:
-        'bg-emerald-100 text-emerald-900 border border-emerald-300 dark:bg-emerald-800 dark:text-emerald-100 dark:border-emerald-600',
+      pendidikan: 'bg-emerald-100 text-emerald-900 border border-emerald-300 dark:bg-emerald-800 dark:text-emerald-100 dark:border-emerald-600',
+      infrastruktur: 'bg-green-100 text-green-900 border border-green-300 dark:bg-green-800 dark:text-green-100 dark:border-green-600',
+      budaya: 'bg-teal-100 text-teal-900 border border-teal-300 dark:bg-teal-800 dark:text-teal-100 dark:border-teal-600',
+      ekonomi: 'bg-lime-100 text-lime-900 border border-lime-300 dark:bg-lime-800 dark:text-lime-100 dark:border-lime-600',
+      lingkungan: 'bg-emerald-100 text-emerald-900 border border-emerald-300 dark:bg-emerald-800 dark:text-emerald-100 dark:border-emerald-600',
     };
     return (
       colors[category as keyof typeof colors] ||
-      'bg-gray-500/20 text-gray-800 border border-gray-500/30 dark:bg-gray-900/30 dark:text-gray-200 dark:border-gray-500/50'
+      'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50'
     );
   };
 
@@ -247,7 +242,7 @@ const NewsPage: React.FC = () => {
       <section
         className="py-20 md:py-32 relative overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(17, 24, 39, 0.85) 0%, rgba(31, 41, 55, 0.8) 50%, rgba(17, 24, 39, 0.9) 100%), url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
+          backgroundImage: `linear-gradient(135deg, rgba(5, 150, 105, 0.85) 0%, rgba(16, 185, 129, 0.8) 50%, rgba(4, 120, 87, 0.9) 100%), url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -273,7 +268,7 @@ const NewsPage: React.FC = () => {
                 Berita dan Informasi
               </span>
               <br />
-              <span className="text-blue-200">Desa Cikadu</span>
+              <span className="text-emerald-200">Desa Cikadu</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
@@ -300,7 +295,7 @@ const NewsPage: React.FC = () => {
                     placeholder="Cari berita dan informasi..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3 md:py-4 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-sm md:text-base shadow-sm"
+                    className="w-full pl-12 pr-4 py-3 md:py-4 rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 text-sm md:text-base shadow-sm"
                   />
                 </div>
 
@@ -312,7 +307,7 @@ const NewsPage: React.FC = () => {
                     <select
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="w-full pl-10 md:pl-12 pr-8 py-3 md:py-4 rounded-xl border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-sm md:text-base appearance-none cursor-pointer font-medium shadow-sm hover:shadow-md"
+                      className="w-full pl-10 md:pl-12 pr-8 py-3 md:py-4 rounded-xl border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 text-sm md:text-base appearance-none cursor-pointer font-medium shadow-sm hover:shadow-md"
                     >
                       {categories.map((category) => (
                         <option key={category.value} value={category.value}>
@@ -328,7 +323,7 @@ const NewsPage: React.FC = () => {
                     <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-gray-500 pointer-events-none z-10" />
                     <select
                       defaultValue="newest"
-                      className="w-full pl-10 md:pl-12 pr-8 py-3 md:py-4 rounded-xl border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-sm md:text-base appearance-none cursor-pointer font-medium shadow-sm hover:shadow-md"
+                      className="w-full pl-10 md:pl-12 pr-8 py-3 md:py-4 rounded-xl border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 text-sm md:text-base appearance-none cursor-pointer font-medium shadow-sm hover:shadow-md"
                     >
                       <option value="newest">Terbaru</option>
                       <option value="oldest">Terlama</option>
@@ -356,7 +351,7 @@ const NewsPage: React.FC = () => {
               className="mb-12"
             >
               <div className="text-center mb-12">
-                <div className="inline-flex items-center px-4 py-2 mb-4 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+                <div className="inline-flex items-center px-4 py-2 mb-4 rounded-full bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200">
                   <TrendingUp className="w-4 h-4 mr-2" />
                   <span className="font-semibold">BERITA UTAMA</span>
                 </div>
@@ -389,7 +384,7 @@ const NewsPage: React.FC = () => {
                   </div>
 
                   <div className="lg:col-span-2 p-6 md:p-8 flex flex-col justify-center">
-                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-emerald-600 transition-colors duration-300">
                       {filteredArticles[0].title}
                     </h3>
 
@@ -415,7 +410,7 @@ const NewsPage: React.FC = () => {
                     <Button
                       variant="primary"
                       size="lg"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 md:py-4 px-6 rounded-xl shadow-lg hover:shadow-xl"
+                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 md:py-4 px-6 rounded-xl shadow-lg hover:shadow-xl"
                       icon={ArrowRight}
                       onClick={() => handleCardClick(filteredArticles[0].id)}
                     >
@@ -474,7 +469,7 @@ const NewsPage: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <Card
-                    className="overflow-hidden h-full hover:shadow-2xl transition-all duration-500 cursor-pointer group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
+                    className="overflow-hidden h-full hover:shadow-2xl transition-all duration-500 cursor-pointer group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600"
                     onClick={() => handleCardClick(article.id)}
                   >
                     <div className="relative">
@@ -496,7 +491,7 @@ const NewsPage: React.FC = () => {
                     </div>
 
                     <div className="p-4 md:p-6 flex flex-col h-full">
-                      <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">
                         {article.title}
                       </h3>
 
@@ -520,7 +515,7 @@ const NewsPage: React.FC = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full border-blue-500 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-200 font-medium"
+                        className="w-full border-emerald-500 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all duration-200 font-medium"
                         onClick={() => handleCardClick(article.id)}
                       >
                         Baca Artikel
@@ -544,7 +539,7 @@ const NewsPage: React.FC = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold border-blue-500 text-blue-600 hover:bg-blue-600 hover:text-white"
+                className="px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold border-emerald-500 text-emerald-600 hover:bg-emerald-600 hover:text-white"
               >
                 Muat Lebih Banyak Berita
               </Button>
