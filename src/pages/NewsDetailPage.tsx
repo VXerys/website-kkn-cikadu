@@ -119,13 +119,13 @@ const NewsDetailPage: React.FC = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      pendidikan: 'bg-blue-500/20 text-blue-800 border border-blue-500/30 dark:bg-blue-900/30 dark:text-blue-200 dark:border-blue-500/50',
-      infrastruktur: 'bg-gray-500/20 text-gray-800 border border-gray-500/30 dark:bg-gray-900/30 dark:text-gray-200 dark:border-gray-500/50',
-      budaya: 'bg-purple-500/20 text-purple-800 border border-purple-500/30 dark:bg-purple-900/30 dark:text-purple-200 dark:border-purple-500/50',
-      ekonomi: 'bg-green-500/20 text-green-800 border border-green-500/30 dark:bg-green-900/30 dark:text-green-200 dark:border-green-500/50',
+      pendidikan: 'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50',
+      infrastruktur: 'bg-green-500/20 text-green-800 border border-green-500/30 dark:bg-green-900/30 dark:text-green-200 dark:border-green-500/50',
+      budaya: 'bg-teal-500/20 text-teal-800 border border-teal-500/30 dark:bg-teal-900/30 dark:text-teal-200 dark:border-teal-500/50',
+      ekonomi: 'bg-lime-500/20 text-lime-800 border border-lime-500/30 dark:bg-lime-900/30 dark:text-lime-200 dark:border-lime-500/50',
       lingkungan: 'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50',
     };
-    return colors[category as keyof typeof colors] || 'bg-gray-500/20 text-gray-800 border border-gray-500/30 dark:bg-gray-900/30 dark:text-gray-200 dark:border-gray-500/50';
+    return colors[category as keyof typeof colors] || 'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50';
   };
 
   const formatDate = (dateString: string) => {
@@ -175,7 +175,7 @@ const NewsDetailPage: React.FC = () => {
       <section 
         className="py-16 md:py-20 relative overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 150, 105, 0.8) 50%, rgba(4, 120, 87, 0.9) 100%), url('${article.image_url}')`,
+          backgroundImage: `linear-gradient(135deg, rgba(5, 150, 105, 0.9) 0%, rgba(16, 185, 129, 0.8) 50%, rgba(4, 120, 87, 0.9) 100%), url('${article.image_url}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -247,8 +247,8 @@ const NewsDetailPage: React.FC = () => {
                   <button
                     onClick={handleLike}
                     data-scroll-to-top="false"
-                    className={`flex items-center space-x-2 transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 font-semibold ${
-                      isLiked ? 'text-red-300 hover:text-red-200' : 'text-white/90 hover:text-white'
+                    className={`flex items-center space-x-2 transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 font-semibold hover:bg-white/30 ${
+                      isLiked ? 'text-emerald-200 hover:text-emerald-100' : 'text-white/90 hover:text-white'
                     }`}
                   >
                     <Heart className={`h-5 w-5 ${isLiked ? 'fill-current' : ''}`} />
@@ -257,7 +257,7 @@ const NewsDetailPage: React.FC = () => {
                   <button
                     onClick={handleShare}
                     data-scroll-to-top="false"
-                    className="flex items-center space-x-2 text-white/90 hover:text-white transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 font-semibold"
+                    className="flex items-center space-x-2 text-white/90 hover:text-white transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 font-semibold hover:bg-white/30"
                   >
                     <Share2 className="h-5 w-5" />
                     <span className="font-medium">Bagikan</span>
@@ -309,10 +309,10 @@ const NewsDetailPage: React.FC = () => {
                       <button
                         onClick={handleLike}
                        data-scroll-to-top="false"
-                        className={`px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 font-semibold ${
+                        className={`px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 font-semibold hover:scale-105 ${
                           isLiked 
-                            ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-700'
-                            : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-red-100 dark:hover:bg-red-900/30 border border-emerald-200 dark:border-emerald-700 hover:border-red-200 dark:hover:border-red-700'
+                            ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-700'
+                            : 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-700'
                         }`}
                       >
                         <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
@@ -321,7 +321,7 @@ const NewsDetailPage: React.FC = () => {
                       <button
                         onClick={handleShare}
                        data-scroll-to-top="false"
-                        className="px-4 py-2 rounded-lg flex items-center space-x-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-all duration-300 font-semibold border border-emerald-200 dark:border-emerald-700"
+                        className="px-4 py-2 rounded-lg flex items-center space-x-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-all duration-300 font-semibold border border-emerald-200 dark:border-emerald-700 hover:scale-105"
                       >
                         <Share2 className="h-4 w-4" />
                         <span>Bagikan</span>
@@ -373,7 +373,7 @@ const NewsDetailPage: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <Card
-                    className="overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 h-full"
+                    className="overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500 group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 h-full hover:scale-[1.02]"
                     onClick={() => navigate(`/news/${relatedArticle.id}`)}
                   >
                     <div className="relative">
@@ -412,7 +412,7 @@ const NewsDetailPage: React.FC = () => {
                       <Button 
                         variant="outline" 
                         size="sm"
-                        className="w-full border-emerald-500 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all duration-200 rounded-lg font-semibold"
+                        className="w-full border-emerald-500 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all duration-200 rounded-lg font-semibold hover:scale-105"
                       >
                         Baca Artikel
                       </Button>
@@ -427,7 +427,7 @@ const NewsDetailPage: React.FC = () => {
                 onClick={() => navigate('/news')}
                 variant="primary"
                 size="lg"
-                className="px-8 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl"
+                className="px-8 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl bg-emerald-600 hover:bg-emerald-700 hover:scale-105"
                 disableScrollToTop={false}
               >
                 Lihat Semua Berita
@@ -441,7 +441,7 @@ const NewsDetailPage: React.FC = () => {
       <section 
         className="py-20 relative overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.9) 50%, rgba(4, 120, 87, 0.95) 100%), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80')`,
+          backgroundImage: `linear-gradient(135deg, rgba(5, 150, 105, 0.95) 0%, rgba(16, 185, 129, 0.9) 50%, rgba(4, 120, 87, 0.95) 100%), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -469,16 +469,16 @@ const NewsDetailPage: React.FC = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white via-emerald-100 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
                 Terlibat Aktif dalam
               </span>
               <br />
-              <span className="text-emerald-100">Pembangunan Desa</span>
+              <span className="text-green-100">Pembangunan Desa</span>
             </h2>
             
             <p className="text-xl md:text-2xl text-emerald-50 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-              Mari bergabung dan berpartisipasi dalam <strong className="text-white">transformasi berkelanjutan</strong> 
-              Desa Cikadu menuju <strong className="text-white">masyarakat digital yang maju</strong> dan sejahtera.
+              Mari bergabung dan berpartisipasi dalam <strong className="text-green-200">transformasi berkelanjutan</strong> 
+              Desa Cikadu menuju <strong className="text-green-200">masyarakat digital yang maju</strong> dan sejahtera.
             </p>
           </motion.div>
 
@@ -491,7 +491,7 @@ const NewsDetailPage: React.FC = () => {
                 description: "Kantor Desa Cikadu",
                 contact: "+62 266 431234",
                 action: "Telepon Sekarang",
-                color: "bg-blue-500"
+                color: "bg-emerald-500"
               },
               {
                 icon: Mail,
@@ -507,7 +507,7 @@ const NewsDetailPage: React.FC = () => {
                 description: "Desa Cikadu, Pelabuhanratu",
                 contact: "Sukabumi, Jawa Barat",
                 action: "Lihat Peta",
-                color: "bg-purple-500"
+                color: "bg-green-500"
               }
             ].map((contact, index) => (
               <motion.div
@@ -546,10 +546,10 @@ const NewsDetailPage: React.FC = () => {
               
               <div className="flex flex-wrap justify-center gap-4 mb-8">
                 {[
-                  { name: 'WhatsApp Grup Desa', icon: '📱', color: 'bg-green-600' },
-                  { name: 'Facebook Desa', icon: '📘', color: 'bg-blue-600' },
-                  { name: 'Instagram Desa', icon: '📸', color: 'bg-pink-600' },
-                  { name: 'YouTube Channel', icon: '🎥', color: 'bg-red-600' }
+                  { name: 'WhatsApp Grup Desa', icon: '📱', color: 'bg-emerald-600' },
+                  { name: 'Facebook Desa', icon: '📘', color: 'bg-green-600' },
+                  { name: 'Instagram Desa', icon: '📸', color: 'bg-teal-600' },
+                  { name: 'YouTube Channel', icon: '🎥', color: 'bg-lime-600' }
                 ].map((social, index) => (
                   <button
                     key={index}
@@ -611,9 +611,9 @@ const NewsDetailPage: React.FC = () => {
 
               <div className="mt-8 pt-6 border-t border-white/20 text-emerald-100">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-white">Program KKN Universitas Nusa Putra</strong> bersama masyarakat 
+                  <strong className="text-green-200">Program KKN Universitas Nusa Putra</strong> bersama masyarakat 
                   Desa Cikadu berkomitmen untuk menciptakan transformasi berkelanjutan menuju 
-                  <strong className="text-white"> desa digital yang maju, sejahtera, dan berdaya saing</strong>.
+                  <strong className="text-green-200"> desa digital yang maju, sejahtera, dan berdaya saing</strong>.
                 </p>
               </div>
             </div>
@@ -634,7 +634,7 @@ const NewsDetailPage: React.FC = () => {
   onClick={() => navigate('/news')}
   variant="secondary"
   size="lg"
-  className="bg-white text-emerald-700 hover:bg-emerald-50 font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl"
+  className="bg-white text-emerald-700 hover:bg-emerald-50 font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl hover:scale-105"
   disableScrollToTop={false}
 >
   Lihat Berita Lainnya
@@ -644,7 +644,7 @@ const NewsDetailPage: React.FC = () => {
   onClick={() => navigate('/')}
   variant="outline"
   size="lg"
-  className="border-2 border-white text-white bg-transparent hover:bg-white/90 hover:text-emerald-700 font-bold py-4 px-8 rounded-xl"
+  className="border-2 border-white text-white bg-transparent hover:bg-white/90 hover:text-emerald-700 font-bold py-4 px-8 rounded-xl hover:scale-105"
   disableScrollToTop={false}
 >
   Kembali ke Beranda
@@ -654,19 +654,19 @@ const NewsDetailPage: React.FC = () => {
 
             <div className="mt-8 flex items-center justify-center space-x-8 text-emerald-100 text-sm flex-wrap gap-4">
               <div className="flex items-center">
-                <span className="w-2 h-2 bg-emerald-300 rounded-full mr-2"></span>
+                <span className="w-2 h-2 bg-green-300 rounded-full mr-2"></span>
                 <span>Berita Terpercaya</span>
               </div>
               <div className="flex items-center">
-                <span className="w-2 h-2 bg-emerald-300 rounded-full mr-2"></span>
+                <span className="w-2 h-2 bg-green-300 rounded-full mr-2"></span>
                 <span>Update Harian</span>
               </div>
               <div className="flex items-center">
-                <span className="w-2 h-2 bg-emerald-300 rounded-full mr-2"></span>
+                <span className="w-2 h-2 bg-green-300 rounded-full mr-2"></span>
                 <span>Program KKN</span>
               </div>
               <div className="flex items-center">
-                <span className="w-2 h-2 bg-emerald-300 rounded-full mr-2"></span>
+                <span className="w-2 h-2 bg-green-300 rounded-full mr-2"></span>
                 <span>Transformasi Digital</span>
               </div>
             </div>
