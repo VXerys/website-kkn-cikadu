@@ -6,7 +6,7 @@ import Card from '../components/UI/Card';
 const AboutPage: React.FC = () => {
   // SVG pattern untuk texture
   const patternSvg =
-    "data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E";
+    "data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E";
 
   const stats = [
     { icon: Users, label: 'Jiwa Mulia', value: '2,500+' },
@@ -41,19 +41,19 @@ const AboutPage: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero Section with Background Image */}
+      {/* Hero Section with Village Background Image */}
       <section
         className="relative py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1574263867128-befc7a48f0cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
         }}
       >
-        {/* Enhanced Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/90 via-green-800/75 to-green-700/60"></div>
+        {/* Dark Overlay for Better Text Readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
 
-        {/* Pattern Overlay for Texture */}
+        {/* Subtle Pattern Overlay for Texture */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-10"
           style={{ backgroundImage: `url(${patternSvg})` }}
         ></div>
 
@@ -64,17 +64,17 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
               Jiwa Masyarakat Bersatu
             </h1>
-            <p className="text-xl text-green-50 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
               Terletak di jantung keindahan alam Sukabumi, Desa Cikadu adalah
               permata tersembunyi yang memancarkan kehangatan persaudaraan dan
               kearifan tradisi yang tak ternilai harganya.
             </p>
           </motion.div>
 
-          {/* Enhanced Stats Cards */}
+          {/* Enhanced Stats Cards with Semi-Transparent Background */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {stats.map((stat, index) => (
               <motion.div
@@ -84,12 +84,12 @@ const AboutPage: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <Card className="p-6 text-center bg-white/95 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl hover:bg-white transform hover:-translate-y-2 transition-all duration-500 hover:scale-105">
-                  <stat.icon className="h-10 w-10 text-green-600 mx-auto mb-3 group-hover:text-green-700 transition-colors duration-300" />
-                  <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-green-800 transition-colors duration-300">
+                <Card className="p-6 text-center bg-black/60 backdrop-blur-sm border border-white/10 shadow-2xl hover:shadow-3xl hover:bg-black/70 transform hover:-translate-y-2 transition-all duration-500 hover:scale-105">
+                  <stat.icon className="h-10 w-10 text-green-400 mx-auto mb-3 group-hover:text-green-300 transition-colors duration-300" />
+                  <div className="text-3xl font-bold text-white mb-2 group-hover:text-green-100 transition-colors duration-300">
                     {stat.value}
                   </div>
-                  <div className="text-sm font-medium text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                  <div className="text-sm font-medium text-gray-200 group-hover:text-gray-100 transition-colors duration-300">
                     {stat.label}
                   </div>
                 </Card>
@@ -110,7 +110,7 @@ const AboutPage: React.FC = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 text-sm font-medium mb-4">
                 <Calendar className="w-4 h-4 mr-2" />
                 Sejarah Panjang
               </div>
@@ -118,7 +118,7 @@ const AboutPage: React.FC = () => {
                 Legenda yang Menginspirasi
               </h2>
               <div className="space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-                <p className="border-l-4 border-green-500 pl-6 italic">
+                <p className="border-l-4 border-green-500 dark:border-green-400 pl-6 italic">
                   Didirikan pada tahun 1892 oleh sekelompok keluarga pemberani
                   yang memiliki visi mulia, Desa Cikadu telah berkembang dari
                   pemukiman pertanian sederhana menjadi komunitas yang
@@ -162,7 +162,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Traditions Section - Enhanced */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-green-100 dark:bg-gray-800">
+      <section className="py-20 bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -171,7 +171,7 @@ const AboutPage: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-200 text-green-800 text-sm font-medium mb-4">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-200 dark:bg-green-900/50 text-green-800 dark:text-green-300 text-sm font-medium mb-4">
               <Award className="w-4 h-4 mr-2" />
               Warisan Budaya
             </div>
@@ -195,8 +195,8 @@ const AboutPage: React.FC = () => {
                 viewport={{ once: true }}
                 className="group h-full"
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-3 bg-white border-0 shadow-lg rounded-xl h-full flex flex-col">
-                  <div className="relative overflow-hidden h-52 bg-gray-200">
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 transform group-hover:-translate-y-3 bg-white dark:bg-gray-800 border-0 shadow-lg rounded-xl h-full flex flex-col">
+                  <div className="relative overflow-hidden h-52 bg-gray-200 dark:bg-gray-700">
                     <img
                       src={tradition.image}
                       alt={tradition.title}
@@ -207,7 +207,7 @@ const AboutPage: React.FC = () => {
                         const parent = target.parentElement;
                         if (parent) {
                           parent.innerHTML = `
-                            <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                            <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
                               <div class="text-center text-gray-400">
                                 <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
                                   <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
@@ -222,7 +222,7 @@ const AboutPage: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-green-700 transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors duration-300 line-clamp-2">
                       {tradition.title}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-1 text-sm">
@@ -262,7 +262,7 @@ const AboutPage: React.FC = () => {
               viewport={{ once: true }}
               className="order-1 lg:order-2 space-y-6"
             >
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 text-sm font-medium mb-4">
                 <MapPin className="w-4 h-4 mr-2" />
                 Keindahan Alam
               </div>
@@ -270,7 +270,7 @@ const AboutPage: React.FC = () => {
                 Surga Geografis & Lingkungan Menawan
               </h2>
               <div className="space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-                <p className="border-l-4 border-green-500 pl-6 italic">
+                <p className="border-l-4 border-green-500 dark:border-green-400 pl-6 italic">
                   Desa Cikadu terletak strategis di lembah subur yang memukau,
                   dikelilingi perbukitan hijau yang mempesona dan hutan pristine
                   yang menyejukkan jiwa. Wilayah ini dikaruniai iklim tropis
@@ -297,14 +297,14 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Vision Section - Enhanced with Background */}
+      {/* Vision Section - Enhanced with Rural Community Background */}
       <section
         className="relative py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1574263867128-befc7a48f0cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-green-800/95 via-green-700/90 to-green-600/95"></div>
+        <div className="absolute inset-0 bg-black/65"></div>
         <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -312,14 +312,14 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium mb-8">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/15 backdrop-blur-sm text-white text-sm font-medium mb-8 border border-white/20">
               <Award className="w-5 h-5 mr-2" />
               Visi & Misi
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl">
               Visi Mulia untuk Masa Depan Gemilang
             </h2>
-            <p className="text-xl text-green-50 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+            <p className="text-xl text-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
               Kami bermimpi menjadi desa percontohan yang menginspirasi dunia,
               di mana tradisi luhur berpadu harmonis dengan inovasi modern,
               menciptakan kehidupan yang berkelanjutan dan membahagiakan bagi
@@ -327,10 +327,10 @@ const AboutPage: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <motion.div
-                className="bg-white/15 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-black/50 transition-all duration-300 transform hover:-translate-y-2 hover:border-white/20"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="w-12 h-12 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="currentColor"
@@ -346,16 +346,16 @@ const AboutPage: React.FC = () => {
                 <h3 className="text-xl font-bold text-white mb-3">
                   Keberlanjutan
                 </h3>
-                <p className="text-green-100 leading-relaxed">
+                <p className="text-gray-200 leading-relaxed">
                   Melestarikan alam untuk generasi mendatang dengan praktik
                   ramah lingkungan
                 </p>
               </motion.div>
               <motion.div
-                className="bg-white/15 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-black/50 transition-all duration-300 transform hover:-translate-y-2 hover:border-white/20"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="w-12 h-12 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="currentColor"
@@ -369,22 +369,22 @@ const AboutPage: React.FC = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Inovasi</h3>
-                <p className="text-green-100 leading-relaxed">
+                <p className="text-gray-200 leading-relaxed">
                   Mengadopsi teknologi modern untuk kemajuan dan kesejahteraan
                   bersama
                 </p>
               </motion.div>
               <motion.div
-                className="bg-white/15 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-black/50 transition-all duration-300 transform hover:-translate-y-2 hover:border-white/20"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="w-12 h-12 bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
                   Kebersamaan
                 </h3>
-                <p className="text-green-100 leading-relaxed">
+                <p className="text-gray-200 leading-relaxed">
                   Membangun komunitas yang solid dan saling mendukung dalam
                   setiap langkah
                 </p>
