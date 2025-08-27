@@ -43,60 +43,65 @@ const AboutPage: React.FC = () => {
     <div className="min-h-screen pt-16 sm:pt-20">
       {/* Hero Section with Village Background Image */}
       <section
-        className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-cover bg-center bg-no-repeat"
+        className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-cover bg-center bg-fixed"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
+          backgroundAttachment: 'fixed', // Menambahkan parallax effect
         }}
       >
-        {/* Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black/60 sm:bg-black/55 lg:bg-black/50"></div>
+        {/* Dark Overlay dengan opacity yang tepat */}
+        <div className="absolute inset-0 bg-black/50 sm:bg-black/45 lg:bg-black/40"></div>
 
-        {/* Subtle Pattern Overlay for Texture */}
+        {/* Pattern overlay */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-8"
           style={{ backgroundImage: `url(${patternSvg})` }}
         ></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        {/* Konten dengan z-index yang tepat */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+          {/* Hero content */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-8 sm:mb-12 md:mb-16"
+            className="text-center mb-12 sm:mb-16 md:mb-20"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 drop-shadow-2xl leading-tight">
+            {/* Title dengan margin yang tepat */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 drop-shadow-2xl leading-tight">
               Jiwa Masyarakat Bersatu
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed drop-shadow-lg px-4 sm:px-0">
+
+            {/* Subtitle dengan spacing yang benar */}
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-4xl mx-auto leading-relaxed drop-shadow-lg px-4 sm:px-6 lg:px-0">
               Terletak di jantung keindahan alam Sukabumi, Desa Cikadu adalah
               permata tersembunyi yang memancarkan kehangatan persaudaraan dan
               kearifan tradisi yang tak ternilai harganya.
             </p>
           </motion.div>
 
-          {/* Enhanced Stats Cards with Responsive Grid */}
-{/* Enhanced Stats Cards with Responsive Grid */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 md:mb-16 px-2 sm:px-4 lg:px-0">
-  {stats.map((stat, index) => (
-    <motion.div
-      key={stat.label}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group w-full"
-    >
-      <Card className="p-4 sm:p-6 text-center bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:shadow-gray-900/20 border border-gray-100 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:-translate-y-2 transition-all duration-500 hover:scale-105 w-full">
-        <stat.icon className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-green-500 dark:text-green-400 mx-auto mb-3 sm:mb-4 group-hover:text-green-600 dark:group-hover:text-green-300 transition-colors duration-300" />
-        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2 group-hover:text-gray-800 dark:group-hover:text-gray-100 transition-colors duration-300">
-          {stat.value}
-        </div>
-        <div className="text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300 leading-tight">
-          {stat.label}
-        </div>
-      </Card>
-    </motion.div>
-  ))}
-</div>
+          {/* Stats cards dengan margin yang tepat */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-6 lg:px-0">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group w-full"
+              >
+                <Card className="p-4 sm:p-6 text-center bg-white shadow-lg hover:shadow-xl border border-gray-100 rounded-xl hover:bg-gray-50 transform hover:-translate-y-2 transition-all duration-500 hover:scale-105 w-full">
+                  <stat.icon className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-green-500 mx-auto mb-3 sm:mb-4 group-hover:text-green-600 transition-colors duration-300" />
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm sm:text-base font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-300 leading-tight">
+                    {stat.label}
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
