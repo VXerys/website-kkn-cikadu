@@ -75,16 +75,7 @@ const AboutPage: React.FC = () => {
           </motion.div>
 
           {/* Enhanced Stats Cards with Responsive Grid */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 md:mb-16 px-2 sm:px-4 lg:px-0">
-  {stats.map((stat, index) => (
-    <motion.div
-      key={stat.label}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group w-full"
-    >
-      {/* Enhanced Stats Cards with Responsive Grid */}
+{/* Enhanced Stats Cards with Responsive Grid */}
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 md:mb-16 px-2 sm:px-4 lg:px-0">
   {stats.map((stat, index) => (
     <motion.div
