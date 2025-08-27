@@ -84,12 +84,22 @@ const AboutPage: React.FC = () => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group w-full"
     >
-      <Card className="p-4 sm:p-6 text-center bg-white shadow-lg hover:shadow-xl border border-gray-100 rounded-xl hover:bg-gray-50 transform hover:-translate-y-2 transition-all duration-500 hover:scale-105 w-full">
-        <stat.icon className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-green-500 mx-auto mb-3 sm:mb-4 group-hover:text-green-600 transition-colors duration-300" />
-        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-gray-800 transition-colors duration-300">
+      {/* Enhanced Stats Cards with Responsive Grid */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 md:mb-16 px-2 sm:px-4 lg:px-0">
+  {stats.map((stat, index) => (
+    <motion.div
+      key={stat.label}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group w-full"
+    >
+      <Card className="p-4 sm:p-6 text-center bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl dark:shadow-gray-900/20 border border-gray-100 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:-translate-y-2 transition-all duration-500 hover:scale-105 w-full">
+        <stat.icon className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-green-500 dark:text-green-400 mx-auto mb-3 sm:mb-4 group-hover:text-green-600 dark:group-hover:text-green-300 transition-colors duration-300" />
+        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2 group-hover:text-gray-800 dark:group-hover:text-gray-100 transition-colors duration-300">
           {stat.value}
         </div>
-        <div className="text-sm sm:text-base font-medium text-gray-700 group-hover:text-gray-800 transition-colors duration-300 leading-tight">
+        <div className="text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300 leading-tight">
           {stat.label}
         </div>
       </Card>
