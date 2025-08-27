@@ -96,10 +96,6 @@ const AboutPage: React.FC = () => {
     </motion.div>
   ))}
 </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
