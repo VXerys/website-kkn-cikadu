@@ -20,7 +20,6 @@ const Navbar: React.FC = () => {
     { name: 'Berita', path: '/news' },
     { name: 'Ekonomi', path: '/business' },
     { name: 'Peta', path: '/map' },
-    { name: 'Kontak', path: '/contact' },
   ];
 
   const isHomePage = location.pathname === '/';

@@ -10,7 +10,6 @@ import NewsPage from '../pages/NewsPage';
 import NewsDetailPage from '../pages/NewsDetailPage';
 import BusinessPage from '../pages/BusinessPage';
 import MapPage from '../pages/MapPage';
-import ContactPage from '../pages/ContactPage';
 
 const AppContent: React.FC = () => {
   useGlobalScrollToTop();
@@ -26,7 +25,6 @@ const AppContent: React.FC = () => {
           <Route path="/news/:id" element={<NewsDetailPage />} />
           <Route path="/business" element={<BusinessPage />} />
           <Route path="/map" element={<MapPage />} />
-          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
       <Footer />

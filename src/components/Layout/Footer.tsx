@@ -24,7 +24,6 @@ const Footer = () => {
     { name: 'Berita', path: '/news', icon: Newspaper },
     { name: 'Ekonomi', path: '/business', icon: Briefcase },
     { name: 'Peta', path: '/map', icon: Map },
-    { name: 'Kontak', path: '/contact', icon: MessageCircle },
   ];
 
   const handleNavigation = (path) => {
