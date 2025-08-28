@@ -130,12 +130,12 @@ const Footer = () => {
 
             <div className="pt-2">
               <button
-                onClick={() => handleNavigation('/contact')}
+                onClick={() => handleNavigation('/about')}
                 data-scroll-to-top="true"
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-md transition-all duration-200 hover:scale-105 font-semibold shadow-sm hover:shadow-md"
               >
                 <MessageCircle className="h-4 w-4" />
-                <span>Hubungi Kami</span>
+                <span>Tentang Kami</span>
               </button>
             </div>
           </div>

@@ -370,11 +370,11 @@ const HomePage: React.FC = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/about')}
                 data-scroll-to-top="true"
                 className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/60 hover:border-white text-white hover:bg-white/10 font-bold rounded-xl backdrop-blur-md shadow-lg hover:shadow-white/20 transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg"
               >
-                Hubungi Desa
+                Tentang Desa
               </motion.button>
             </motion.div>
 
