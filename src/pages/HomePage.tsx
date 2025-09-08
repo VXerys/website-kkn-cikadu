@@ -49,17 +49,6 @@ const HomePage: React.FC = () => {
         'bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-900/30 dark:to-violet-800/30',
       iconColor: 'text-violet-600 dark:text-violet-400',
     },
-    {
-      icon: MapPin,
-      title: 'Peta Kegiatan',
-      description:
-        'Jelajahi lokasi-lokasi strategis program KKN dan potensi wisata alam Desa Cikadu',
-      path: '/map',
-      gradient: 'from-orange-600 to-orange-700',
-      bgColor:
-        'bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30',
-      iconColor: 'text-orange-600 dark:text-orange-400',
-    },
   ];
 
   return (
@@ -355,13 +344,13 @@ const HomePage: React.FC = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                onClick={() => navigate('/map')}
+                onClick={() => navigate('/about')}
                 data-scroll-to-top="true"
                 className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-emerald-700 hover:bg-emerald-50 shadow-2xl hover:shadow-emerald-200/50 font-bold rounded-xl transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  <MapPin className="h-5 w-5" />
-                  Jelajahi Lokasi KKN
+                  <Home className="h-5 w-5" />
+                  Profil Desa
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
               </motion.button>

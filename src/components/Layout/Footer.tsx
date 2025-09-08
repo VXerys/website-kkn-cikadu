@@ -23,7 +23,6 @@ const Footer = () => {
     { name: 'Tentang', path: '/about', icon: Info },
     { name: 'Berita', path: '/news', icon: Newspaper },
     { name: 'Ekonomi', path: '/business', icon: Briefcase },
-    { name: 'Peta', path: '/map', icon: Map },
   ];
 
   const handleNavigation = (path) => {
