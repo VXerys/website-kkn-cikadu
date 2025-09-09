@@ -140,11 +140,14 @@ const HomePage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-white dark:bg-gray-900 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"></div>
+      {/* Features Section - Perfect Center Alignment */}
+      <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Main Container with Perfect Centering */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -172,69 +175,106 @@ const HomePage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.15,
-                  ease: 'easeOut',
-                }}
-                viewport={{ once: true }}
-                whileHover={{
-                  y: -10,
-                  scale: 1.02,
-                  transition: { duration: 0.3 },
-                }}
-                className="group"
-              >
-                <Card
-                  onClick={() => navigate(feature.path)}
-                  className={`p-8 text-center h-full cursor-pointer border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ${feature.bgColor} backdrop-blur-sm relative overflow-hidden rounded-2xl`}
+          {/* Cards Container - Centered with Flex */}
+          <div className="flex justify-center items-center w-full">
+            <div className="flex flex-wrap justify-center items-stretch gap-8 max-w-5xl">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: index * 0.15,
+                    ease: 'easeOut',
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{
+                    y: -10,
+                    scale: 1.02,
+                    transition: { duration: 0.3 },
+                  }}
+                  className="group flex-shrink-0"
+                  style={{
+                    width: 'calc(33.333% - 1.5rem)', // 3 kolom dengan gap
+                    minWidth: '280px', // Minimum width untuk mobile
+                    maxWidth: '320px', // Maximum width untuk consistency
+                  }}
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}
-                  />
+                  <Card
+                    onClick={() => navigate(feature.path)}
+                    className={`p-6 lg:p-8 text-center h-full cursor-pointer border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ${feature.bgColor} backdrop-blur-sm relative overflow-hidden rounded-2xl w-full min-h-[340px] flex flex-col`}
+                  >
+                    {/* Hover Gradient Overlay */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}
+                    />
 
-                  <div className="relative z-10">
-                    <div className="mb-6">
+                    {/* Card Content */}
+                    <div className="relative z-10 flex flex-col h-full justify-between">
+                      {/* Main Content Area */}
+                      <div className="flex flex-col items-center justify-center flex-1 space-y-6">
+                        {/* Icon Container */}
+                        <motion.div
+                          className={`w-16 h-16 rounded-xl flex items-center justify-center ${feature.bgColor} backdrop-blur-sm border border-white/20 shadow-md group-hover:shadow-lg transition-all duration-300`}
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.6 }}
+                        >
+                          <feature.icon
+                            className={`h-8 w-8 ${feature.iconColor}`}
+                          />
+                        </motion.div>
+
+                        {/* Title */}
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors duration-300 leading-tight text-center">
+                          {feature.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm text-center px-2 flex-1 flex items-center">
+                          {feature.description}
+                        </p>
+                      </div>
+
+                      {/* CTA Section */}
                       <motion.div
-                        className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 ${feature.bgColor} backdrop-blur-sm border border-white/20 shadow-md group-hover:shadow-lg transition-all duration-300`}
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
+                        className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-all duration-300 mt-6 pt-4 border-t border-gray-200/20 dark:border-gray-700/20"
+                        initial={{ x: -10 }}
+                        whileHover={{ x: 0 }}
                       >
-                        <feature.icon
-                          className={`h-8 w-8 ${feature.iconColor}`}
-                        />
+                        <span className="text-sm font-semibold">
+                          Selengkapnya
+                        </span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </motion.div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-                        {feature.description}
-                      </p>
                     </div>
-
-                    <motion.div
-                      className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-all duration-300"
-                      initial={{ x: -10 }}
-                      whileHover={{ x: 0 }}
-                    >
-                      <span className="text-sm font-semibold">
-                        Selengkapnya
-                      </span>
-                      <ArrowRight className="h-4 w-4" />
-                    </motion.div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
+
+          {/* Responsive CSS untuk Mobile */}
+          <style jsx>{`
+      @media (max-width: 1024px) {
+        .flex-wrap > div {
+          width: calc(50% - 1rem) !important;
+          min-width: 260px;
+        }
+      }
+      
+      @media (max-width: 640px) {
+        .flex-wrap > div {
+          width: 100% !important;
+          max-width: 350px !important;
+          min-width: unset;
+        }
+      }
+    `}</style>
         </div>
       </section>
+
+      {/* 
 
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden min-h-screen flex items-center">
