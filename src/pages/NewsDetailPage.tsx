@@ -337,40 +337,6 @@ const NewsDetailPage: React.FC = () => {
                   }}
                 />
               </div>
-
-              {/* Article Footer Actions */}
-              <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-600">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                  <div className="flex items-center space-x-4">
-                    <span className="text-gray-600 dark:text-gray-300 font-medium">
-                      Apakah artikel ini bermanfaat?
-                    </span>
-                    <div className="flex space-x-2">
-                      <button
-                        onClick={handleLike}
-                        data-scroll-to-top="false"
-                        className={`px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 font-semibold hover:scale-105 ${
-                          isLiked
-                            ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-700'
-                            : 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-700'
-                        }`}
-                      >
-                        <Heart
-                          className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`}
-                        />
-                        <span>Suka</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-400">
-                    <MessageCircle className="h-4 w-4" />
-                    <span className="text-sm">
-                      Diskusi di grup WhatsApp desa
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
           </motion.div>
         </div>
