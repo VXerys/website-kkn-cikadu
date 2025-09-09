@@ -212,7 +212,7 @@ Melalui kegiatan ini, diharapkan siswa dapat terlindungi dari berbagai penyakit 
 </p>
 `,
       image_url:
-        'Imunisasi.jpeg',
+        '/Imunisasi.jpeg',
       author: 'KKN Kelompok 45',
       category: 'Kesehatan',
       created_at: '2024-01-03T08:20:00Z',
