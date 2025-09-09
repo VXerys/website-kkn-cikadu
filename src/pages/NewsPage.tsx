@@ -41,82 +41,248 @@ const NewsPage: React.FC = () => {
 
   const mockArticles: NewsArticle[] = [
     {
-      id: '1',
+      id: "1",
       title:
-        'Program Pemberdayaan Masyarakat melalui Pelatihan Keterampilan Digital',
+        "Kegiatan Belajar Mengajar Sesuai Jadwal KBM Sekolah di Desa Cikadu",
       excerpt:
-        'Mahasiswa KKN Universitas Nusa Putra menyelenggarakan pelatihan komputer dan media sosial untuk meningkatkan kemampuan digital warga Desa Cikadu dalam mengembangkan usaha mikro.',
-      content:
-        'Program pelatihan keterampilan digital ini merupakan bagian dari kegiatan KKN yang bertujuan untuk meningkatkan literasi digital masyarakat desa...',
+        "Mahasiswa KKN Universitas Nusa Putra menyelenggarakan kegiatan belajar mengajar guna meningkatkan kualitas pendidikan dan membantu mahasiswa agar dapat beradaptasi dalam belajar mengajar di Desa Cikadu.",
+      content: `
+        
+
+<p>
+  Kegiatan belajar mengajar (KBM) oleh mahasiswa Kuliah Kerja Nyata (KKN) berlangsung di sekolah-sekolah Desa Cikadu, Kecamatan Cikadu, Kabupaten Sukabumi. Program ini dilaksanakan dengan menyesuaikan jadwal KBM di sekolah agar tidak mengganggu proses pembelajaran utama.
+</p>
+
+<p>
+  Pelaksanaan kegiatan dimulai sejak pagi hingga siang hari, mengikuti jam belajar siswa. Mahasiswa KKN terlibat aktif membantu guru dalam menyampaikan materi pelajaran, memberikan bimbingan tambahan, serta mendampingi siswa dalam kegiatan literasi dan numerasi. Metode pengajaran yang digunakan juga disesuaikan dengan kebutuhan masing-masing kelas, mulai dari jenjang sekolah dasar hingga menengah.
+</p>
+
+<p>
+  Tujuan utama program ini adalah memberikan pengalaman belajar yang lebih variatif bagi siswa sekaligus melatih mahasiswa agar terbiasa mengajar di lapangan. Kehadiran mahasiswa di sekolah diharapkan mampu menambah motivasi siswa dalam belajar.
+</p>
+
+<p>
+  Bagi sekolah, kegiatan ini menjadi dukungan tambahan dalam mendampingi siswa, terutama pada kelas yang membutuhkan perhatian lebih. Sementara bagi mahasiswa, kegiatan tersebut menjadi pengalaman berharga dalam menerapkan ilmu yang diperoleh di kampus.
+</p>
+
+<p>
+  Melalui program belajar mengajar ini, kualitas pendidikan di Desa Cikadu diharapkan semakin meningkat. Kegiatan ini juga memperkuat kerja sama antara sekolah, masyarakat, dan perguruan tinggi, serta memberikan kontribusi nyata dalam mendorong peningkatan mutu pendidikan di wilayah pedesaan.
+</p>
+
+      `,
       image_url:
-        'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Tim KKN Universitas Nusa Putra',
-      category: 'pendidikan',
-      created_at: '2024-01-15T10:00:00Z',
+        "/Belajar-mengajar.jpeg",
+      author: "Tim KKN Universitas Nusa Putra",
+      category: "pendidikan",
+      created_at: "2025-09-09T08:02:00Z",
     },
     {
       id: '2',
-      title: 'Gotong Royong Pembangunan Infrastruktur Jalan Desa',
+      title: 'Gotong Royong Renovasi Mesjid',
       excerpt:
-        'Masyarakat Desa Cikadu bersama mahasiswa KKN bergotong royong memperbaiki jalan desa yang rusak untuk memperlancar akses transportasi dan distribusi hasil pertanian.',
+        'Masyarakat Desa Cikadu bersama mahasiswa KKN bergotong royong membantu renovasi mesjid.',
       content:
-        'Kegiatan gotong royong ini melibatkan seluruh elemen masyarakat dalam upaya perbaikan infrastruktur desa...',
+        `
+
+<p>
+  Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi bersama masyarakat setempat melaksanakan kerja bakti renovasi masjid pada Sabtu (23/8). Kegiatan gotong royong ini bertujuan memperbaiki fasilitas ibadah sekaligus mendukung pembangunan masjid menjadi dua tingkat agar lebih nyaman digunakan oleh warga.
+</p>
+
+<p>
+  Sejak pagi, mahasiswa KKN aktif membantu warga dalam proses renovasi. Salah satu bentuk partisipasi mereka adalah dengan mengangkat ember berisi semen secara estafet, yang kemudian digunakan untuk pengecoran lantai dua masjid. Metode estafet ini memudahkan proses pemindahan bahan bangunan dari bawah ke atas, sehingga pekerjaan dapat berlangsung lebih cepat dan efisien.
+</p>
+
+<p>
+  Kegiatan kerja bakti ini tidak hanya berfokus pada pembangunan fisik masjid, tetapi juga mempererat kebersamaan antara mahasiswa dan masyarakat Desa Cikadu. Semangat gotong royong terlihat jelas dari antusiasme warga yang terlibat, mulai dari remaja hingga orang tua.
+</p>
+
+</p>
+
+<p>
+  Sejak pagi, mahasiswa KKN aktif membantu warga dalam proses renovasi. Salah satu bentuk partisipasi mereka adalah dengan mengangkat ember berisi semen secara estafet, yang kemudian digunakan untuk pengecoran lantai dua masjid. Metode estafet ini memudahkan proses pemindahan bahan bangunan dari bawah ke atas, sehingga pekerjaan dapat berlangsung lebih cepat dan efisien.
+</p>
+
+<p>
+  Kegiatan kerja bakti ini tidak hanya berfokus pada pembangunan fisik masjid, tetapi juga mempererat kebersamaan antara mahasiswa dan masyarakat Desa Cikadu. Semangat gotong royong terlihat jelas dari antusiasme warga yang terlibat, mulai dari remaja hingga orang tua.
+</p>
+
+<p>
+  Melalui kegiatan ini, mahasiswa KKN berupaya memberikan kontribusi nyata bagi masyarakat. Renovasi masjid yang kini berkembang menjadi dua tingkat diharapkan dapat memberikan manfaat jangka panjang, baik sebagai tempat ibadah maupun pusat aktivitas keagamaan dan sosial di Desa Cikadu.
+</p>
+`,
       image_url:
-        'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Kepala Desa Cikadu',
+        '/Kerja-bakti.jpeg',
+      author: 'KKN Kelompok 45',
       category: 'infrastruktur',
-      created_at: '2024-01-12T14:30:00Z',
+      created_at: '2025-09-09T08:19:03Z',
     },
     {
-      id: '3',
-      title: 'Festival Budaya dan Seni Tradisional Desa Cikadu',
+      id: "3",
+      title: "Kegiatan Minggonan atau Mengaji di Desa Cikadu",
       excerpt:
-        'Penyelenggaraan festival budaya tahunan yang menampilkan tarian tradisional, musik daerah, dan pameran kerajinan tangan sebagai upaya pelestarian warisan budaya lokal.',
-      content:
-        'Festival budaya ini merupakan wadah untuk melestarikan dan memperkenalkan kekayaan budaya Desa Cikadu...',
+        "Kegiatan minggonan atau mengaji rutin dilaksanakan masyarakat Desa Cikadu setiap minggu di masjid dan mushola. Tradisi ini memperkuat pemahaman agama, menjaga silaturahmi antarwarga, sekaligus menjadi wadah kebersamaan sosial masyarakat desa.",
+      content: `
+<p>
+  Masyarakat Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi secara rutin melaksanakan kegiatan minggonan atau mengaji setiap minggu. Kegiatan ini berlangsung di masjid dan mushola desa dengan tujuan memperkuat pemahaman agama serta menjaga silaturahmi antarwarga.
+</p>
+
+<p>
+  Minggonan biasanya dilaksanakan pada malam hari setelah salat Isya. Rangkaian acara dimulai dengan pembacaan ayat suci Al-Qur’an secara bersama-sama, dilanjutkan dengan kajian singkat tentang akhlak, ibadah, serta nilai-nilai kehidupan sehari-hari. Anak-anak, remaja, hingga orang tua turut hadir sehingga suasana kegiatan berlangsung khidmat namun penuh kebersamaan.
+</p>
+
+<p>
+  Selain menjadi sarana belajar agama, kegiatan minggonan juga menjadi wadah untuk berdiskusi tentang persoalan sosial kemasyarakatan. Dengan demikian, masyarakat tidak hanya memperoleh ilmu keagamaan, tetapi juga mampu mempererat hubungan sosial yang harmonis.
+</p>
+
+<p>
+  Pelaksanaan kegiatan ini berjalan dengan tertib berkat dukungan masyarakat yang kompak menjaga tradisi. Dampaknya terlihat dari meningkatnya semangat belajar agama pada anak-anak serta tumbuhnya rasa kebersamaan antarwarga. Tradisi minggonan sekaligus memperkuat identitas Desa Cikadu sebagai masyarakat yang religius dan menjunjung tinggi nilai gotong royong.
+</p>
+`,
       image_url:
-        'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Karang Taruna Desa Cikadu',
-      category: 'budaya',
-      created_at: '2024-01-10T19:00:00Z',
-    },
+        "/Minggonan.jpeg",
+      author: "KKN Kelompok 45",
+      category: "Keagamaan",
+      created_at: "2025-09-09T08:25:50Z",
+        },
     {
       id: '4',
-      title: 'Pengembangan UMKM Produk Olahan Pertanian',
+      title: 'Seminar Pencegahan Stunting dan Pengembangan UMKM di Desa Cikadu',
       excerpt:
-        'Program pendampingan UMKM oleh mahasiswa KKN dalam mengembangkan produk olahan hasil pertanian lokal untuk meningkatkan nilai tambah dan daya saing produk desa.',
+        'Kegiatan ini memberikan wawasan kesehatan keluarga serta strategi usaha desa untuk mendorong terciptanya generasi sehat dan wirausaha mandiri.',
       content:
-        'Kegiatan pendampingan UMKM ini fokus pada pengembangan produk olahan yang memiliki nilai ekonomi tinggi...',
+        `
+
+<p>
+  Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi menyelenggarakan seminar tentang pencegahan stunting dan pengembangan Usaha Mikro, Kecil, dan Menengah (UMKM) pada Sabtu, 23 Agustus 2025. Kegiatan ini berlangsung di Balai Latihan Kerja Komunitas dengan diikuti oleh warga dari berbagai kalangan, mulai dari ibu rumah tangga, pemuda, hingga pelaku usaha kecil.
+</p>
+
+<p>
+  Seminar dimulai dengan pemaparan mengenai stunting, meliputi penyebab, dampak jangka panjang, serta langkah-langkah pencegahan melalui pola makan sehat, perawatan ibu hamil, dan pemenuhan gizi anak. Materi ini diberikan untuk meningkatkan kesadaran masyarakat akan pentingnya kesehatan keluarga, khususnya generasi muda.
+</p>
+
+<p>
+  Selanjutnya, kegiatan dilanjutkan dengan seminar UMKM yang membahas peluang usaha di tingkat desa, strategi pemasaran, serta pengelolaan keuangan sederhana. Peserta diajak untuk memahami potensi lokal yang dapat dikembangkan menjadi produk bernilai jual, sehingga mampu meningkatkan perekonomian keluarga dan masyarakat.
+</p>
+
+<p>
+  Melalui dua rangkaian seminar ini, masyarakat mendapatkan wawasan yang bermanfaat baik di bidang kesehatan maupun ekonomi. Dampak yang diharapkan adalah terciptanya generasi yang lebih sehat serta lahirnya wirausaha desa yang mandiri. Kegiatan ini sekaligus menjadi bukti nyata kontribusi mahasiswa KKN dalam mendukung pembangunan masyarakat Desa Cikadu secara berkelanjutan.
+</p>
+`,
       image_url:
-        'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Tim Ekonomi KKN',
-      category: 'ekonomi',
-      created_at: '2024-01-08T11:15:00Z',
+        '/Seminar-stunting-umkm.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Kesehatan dan Ekonomi',
+      created_at: '2025-09-09T08:25:50Z',
     },
     {
       id: '5',
-      title: 'Program Beasiswa Pendidikan untuk Anak Desa Berprestasi',
+      title: 'Mahasiswa KKN Ikut Sukseskan Perayaan 17 Agustus di Desa Cikadu',
       excerpt:
-        'Pemberian beasiswa pendidikan kepada siswa berprestasi dari keluarga kurang mampu sebagai bentuk investasi jangka panjang dalam pengembangan sumber daya manusia desa.',
+        'Mahasiswa KKN Desa Cikadu berpartisipasi dalam perayaan HUT ke-80 RI dengan mendukung lomba di sekolah dan desa. Kegiatan ini mempererat kebersamaan serta menumbuhkan semangat nasionalisme masyarakat.',
       content:
         'Program beasiswa ini merupakan hasil kerjasama antara pemerintah desa dengan berbagai pihak...',
       image_url:
-        'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Dinas Pendidikan Desa',
-      category: 'pendidikan',
+        '/17-agustusan.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Ulang Tahun',
       created_at: '2024-01-05T16:45:00Z',
     },
     {
       id: '6',
-      title: 'Program Penghijauan dan Konservasi Lingkungan',
+      title: 'Mahasiswa KKN Bantu Pelaksanaan Imunisasi di Sekolah Desa Cikadu',
       excerpt:
-        'Kegiatan penanaman pohon dan edukasi lingkungan yang dilaksanakan mahasiswa KKN bersama masyarakat untuk menjaga kelestarian alam dan mencegah erosi tanah.',
+        'Mahasiswa KKN Desa Cikadu membantu pelaksanaan imunisasi anak di empat sekolah bersama Puskesmas Citarik. Mereka berperan dalam pengaturan siswa, pencatatan, dan pendampingan agar proses imunisasi berjalan lancar serta nyaman bagi anak-anak.',
       content:
-        'Program penghijauan ini merupakan bagian dari upaya konservasi lingkungan yang berkelanjutan...',
+        `
+
+
+<p>
+Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi turut membantu pelaksanaan imunisasi anak yang dilaksanakan oleh Puskesmas Citarik pada tahun 2025. Kegiatan ini berlangsung di empat sekolah, yaitu SDN Martadinata dan SDN Gentong pada 20 Agustus, serta SDN Cikadu dan MI Cikadu pada 22 Agustus 2025.
+</p>
+
+<p>
+Imunisasi diberikan kepada siswa kelas 1 (laki-laki dan perempuan) serta siswa kelas 6 khusus perempuan. Proses imunisasi dilakukan langsung oleh tenaga kesehatan dari Puskesmas Citarik dengan dukungan pihak sekolah. Mahasiswa KKN berperan membantu dalam pengaturan siswa, pencatatan data, serta mendampingi anak-anak agar lebih tenang saat proses imunisasi berlangsung.
+</p>
+
+<p>
+Seluruh kegiatan berjalan dengan tertib dan lancar. Anak-anak dipanggil secara bergiliran, sementara guru dan mahasiswa memastikan suasana tetap kondusif. Mahasiswa juga membantu memberikan edukasi ringan mengenai pentingnya imunisasi untuk menjaga kesehatan dan mencegah penyakit sejak dini.
+</p>
+
+<p>
+Melalui kegiatan ini, diharapkan siswa dapat terlindungi dari berbagai penyakit menular dan tumbuh menjadi generasi yang sehat. Kehadiran mahasiswa KKN menjadi bentuk dukungan nyata terhadap program kesehatan pemerintah sekaligus wujud pengabdian kepada masyarakat Desa Cikadu.
+</p>
+`,
       image_url:
-        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Tim Lingkungan KKN',
-      category: 'lingkungan',
+        'Imunisasi.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Kesehatan',
+      created_at: '2024-01-03T08:20:00Z',
+    },
+    {
+      id: '7',
+      title: 'Mahasiswa KKN Ikut Serta dalam Peringatan Maulid Nabi Muhammad SAW di Desa Cikadu',
+      excerpt:
+        'Mahasiswa KKN Desa Cikadu ikut serta dalam peringatan Maulid Nabi Muhammad SAW di Kampung Batu Nunggul. Acara berlangsung khidmat dengan lantunan shalawat, tausiyah, dan doa bersama, sekaligus memperkuat nilai persaudaraan serta tradisi keagamaan masyarakat.',
+      content:
+        `
+
+<p>
+Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi ikut serta dalam peringatan Maulid Nabi Muhammad SAW yang dilaksanakan di Kampung Batu Nunggul, Desa Cikadu, pada Senin (25/8/2025). Kegiatan ini dihadiri oleh warga setempat, tokoh agama, serta para pemuda desa sebagai bentuk rasa syukur sekaligus upaya meneladani akhlak Nabi Muhammad SAW.
+</p>
+
+<p>
+Acara dimulai dengan pembacaan ayat suci Al-Qur’an, dilanjutkan dengan lantunan shalawat, tausiyah, dan doa bersama. Suasana khidmat dan penuh kebersamaan tercipta ketika masyarakat berkumpul untuk memperingati hari kelahiran Nabi. Selain itu, kegiatan juga diwarnai dengan partisipasi anak-anak dan remaja, yang menambah semarak acara tanpa mengurangi nilai religius.
+</p>
+
+<p>
+Keterlibatan mahasiswa KKN dalam kegiatan ini menunjukkan dukungan mereka terhadap pelestarian tradisi keagamaan di masyarakat. Melalui peringatan Maulid Nabi, warga semakin memperkuat nilai persaudaraan, gotong royong, serta semangat religius yang sudah mengakar di Desa Cikadu.
+</p>
+
+<p>
+Dengan terselenggaranya acara ini, masyarakat berharap tradisi keagamaan dapat terus terjaga dan menjadi sarana pembinaan generasi muda agar selalu meneladani ajaran Nabi Muhammad SAW dalam kehidupan sehari-hari.
+</p>
+
+`,
+      image_url:
+        'Maulid.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Keagamaan',
+      created_at: '2024-01-03T08:20:00Z',
+    },
+            {
+      id: '8',
+      title: 'Peresmian peta administrasi dan peta mitigasi bencana, seminar edukasi, serta lomba untuk masyarakat',
+      excerpt:
+        'Mahasiswa KKN Desa Cikadu menggelar peresmian peta administrasi dan peta mitigasi bencana, seminar edukasi, serta lomba untuk masyarakat. Kegiatan ini bertujuan meningkatkan pengetahuan, kesadaran lingkungan, dan kebersamaan warga.',
+      content:
+`
+<h1>Rangkaian Kegiatan Mahasiswa KKN di Desa Cikadu</h1>
+
+<p>
+  Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi menggelar rangkaian kegiatan pada Minggu (8/9), meliputi peresmian peta administrasi desa, peta mitigasi bencana, seminar edukasi, serta lomba untuk siswa dan masyarakat umum. Kegiatan ini dilaksanakan di balai desa dengan melibatkan perangkat desa, tokoh masyarakat, serta warga sekitar.
+</p>
+
+<p>
+  Acara diawali dengan peresmian peta administrasi desa dan peta mitigasi bencana. Peta tersebut berfungsi sebagai panduan tata wilayah sekaligus sarana informasi dalam menghadapi potensi bencana di Desa Cikadu. Kehadirannya diharapkan memudahkan masyarakat dalam memahami kondisi wilayah dan meningkatkan kesiapsiagaan bencana.
+</p>
+
+<p>
+  Selanjutnya, seminar edukasi menghadirkan tiga tema penting, yaitu anti bullying dan pencegahan kekerasan seksual, edukasi pengelolaan sampah, serta pentingnya menjaga lingkungan. Materi disampaikan secara interaktif agar mudah dipahami peserta yang terdiri dari pelajar hingga orang dewasa.
+</p>
+
+<p>
+  Rangkaian kegiatan ditutup dengan berbagai lomba untuk siswa dan masyarakat umum. Lomba ini tidak hanya bertujuan memeriahkan acara, tetapi juga menjadi sarana menumbuhkan kreativitas, kebersamaan, dan kepedulian sosial.
+</p>
+
+<p>
+  Melalui kegiatan ini, mahasiswa KKN berupaya memberikan kontribusi nyata dengan meningkatkan pengetahuan masyarakat, memperkuat kesadaran lingkungan, serta mendukung pembangunan Desa Cikadu yang lebih maju dan berdaya.
+</p>
+
+`,
+      image_url:
+        '/Peresmian-peta.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Wilayah dan Lingkungan',
       created_at: '2024-01-03T08:20:00Z',
     },
   ];

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   ArrowLeft,
   Calendar,
@@ -16,10 +16,10 @@ import {
   Mail,
   ExternalLink,
   Heart,
-} from 'lucide-react';
-import Button from '../components/UI/Button';
-import Card from '../components/UI/Card';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+} from "lucide-react";
+import Button from "../components/UI/Button";
+import Card from "../components/UI/Card";
+import LoadingSpinner from "../components/UI/LoadingSpinner";
 
 interface NewsArticle {
   id: string;
@@ -45,57 +45,245 @@ const NewsDetailPage: React.FC = () => {
 
   const mockArticles: NewsArticle[] = [
     {
-      id: '1',
+      id: "1",
       title:
-        'Program Pemberdayaan Masyarakat melalui Pelatihan Keterampilan Digital',
+        "Kegiatan Belajar Mengajar Sesuai Jadwal KBM Sekolah di Desa Cikadu",
       excerpt:
-        'Mahasiswa KKN Universitas Nusa Putra menyelenggarakan pelatihan komputer dan media sosial untuk meningkatkan kemampuan digital warga Desa Cikadu dalam mengembangkan usaha mikro.',
+        "Mahasiswa KKN Universitas Nusa Putra menyelenggarakan kegiatan belajar mengajar guna meningkatkan kualitas pendidikan dan membantu mahasiswa agar dapat beradaptasi dalam belajar mengajar di Desa Cikadu.",
       content: `
-        <p>Program pelatihan keterampilan digital ini merupakan bagian dari kegiatan KKN yang bertujuan untuk meningkatkan literasi digital masyarakat desa. Kegiatan ini dilaksanakan selama dua minggu dengan melibatkan 50 peserta dari berbagai kalangan usia.</p>
         
-        <p>Materi pelatihan meliputi penggunaan komputer dasar, pengelolaan media sosial untuk promosi usaha, dan pembuatan konten digital yang menarik. Para peserta sangat antusias mengikuti setiap sesi pelatihan yang dipandu langsung oleh mahasiswa KKN.</p>
-        
-        <p><strong>Dampak Positif Program</strong></p>
-        <p>Program ini telah memberikan dampak yang luar biasa bagi masyarakat desa. Banyak peserta yang sebelumnya tidak familiar dengan teknologi digital, kini mulai dapat menggunakan smartphone dan komputer untuk mendukung usaha mereka.</p>
-        
-        <p>"Kami sangat berterima kasih kepada mahasiswa KKN yang telah memberikan ilmu berharga ini. Sekarang kami bisa memasarkan produk kerajinan melalui media sosial," ujar Ibu Siti, salah satu peserta pelatihan yang menjalankan usaha kerajinan tangan.</p>
-        
-        <p><strong>Keberlanjutan Program</strong></p>
-        <p>Program ini diharapkan dapat memberikan dampak jangka panjang bagi pengembangan ekonomi kreatif di Desa Cikadu. Dengan kemampuan digital yang meningkat, masyarakat dapat lebih mudah mengakses pasar yang lebih luas dan meningkatkan pendapatan keluarga.</p>
-        
-        <p>Ke depannya, akan dibentuk komunitas digital desa yang akan terus memberikan pendampingan dan sharing knowledge antar anggota. Hal ini diharapkan dapat menjaga keberlanjutan manfaat program pelatihan ini.</p>
+
+<p>
+  Kegiatan belajar mengajar (KBM) oleh mahasiswa Kuliah Kerja Nyata (KKN) berlangsung di sekolah-sekolah Desa Cikadu, Kecamatan Cikadu, Kabupaten Sukabumi. Program ini dilaksanakan dengan menyesuaikan jadwal KBM di sekolah agar tidak mengganggu proses pembelajaran utama.
+</p>
+
+<p>
+  Pelaksanaan kegiatan dimulai sejak pagi hingga siang hari, mengikuti jam belajar siswa. Mahasiswa KKN terlibat aktif membantu guru dalam menyampaikan materi pelajaran, memberikan bimbingan tambahan, serta mendampingi siswa dalam kegiatan literasi dan numerasi. Metode pengajaran yang digunakan juga disesuaikan dengan kebutuhan masing-masing kelas, mulai dari jenjang sekolah dasar hingga menengah.
+</p>
+
+<p>
+  Tujuan utama program ini adalah memberikan pengalaman belajar yang lebih variatif bagi siswa sekaligus melatih mahasiswa agar terbiasa mengajar di lapangan. Kehadiran mahasiswa di sekolah diharapkan mampu menambah motivasi siswa dalam belajar.
+</p>
+
+<p>
+  Bagi sekolah, kegiatan ini menjadi dukungan tambahan dalam mendampingi siswa, terutama pada kelas yang membutuhkan perhatian lebih. Sementara bagi mahasiswa, kegiatan tersebut menjadi pengalaman berharga dalam menerapkan ilmu yang diperoleh di kampus.
+</p>
+
+<p>
+  Melalui program belajar mengajar ini, kualitas pendidikan di Desa Cikadu diharapkan semakin meningkat. Kegiatan ini juga memperkuat kerja sama antara sekolah, masyarakat, dan perguruan tinggi, serta memberikan kontribusi nyata dalam mendorong peningkatan mutu pendidikan di wilayah pedesaan.
+</p>
+
       `,
-      image_url:
-        'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Tim KKN Universitas Nusa Putra',
-      category: 'pendidikan',
-      created_at: '2024-01-15T10:00:00Z',
+      image_url: "/Belajar-mengajar.jpeg",
+      author: "Tim KKN Universitas Nusa Putra",
+      category: "pendidikan",
+      created_at: "2025-09-09T08:02:00Z",
     },
     {
-      id: '2',
-      title: 'Gotong Royong Pembangunan Infrastruktur Jalan Desa',
+      id: "2",
+      title: "Gotong Royong Renovasi Mesjid",
       excerpt:
-        'Masyarakat Desa Cikadu bersama mahasiswa KKN bergotong royong memperbaiki jalan desa yang rusak untuk memperlancar akses transportasi dan distribusi hasil pertanian.',
-      content:
-        'Kegiatan gotong royong ini melibatkan seluruh elemen masyarakat dalam upaya perbaikan infrastruktur desa...',
-      image_url:
-        'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Kepala Desa Cikadu',
-      category: 'infrastruktur',
-      created_at: '2024-01-12T14:30:00Z',
+        "Masyarakat Desa Cikadu bersama mahasiswa KKN bergotong royong membantu renovasi mesjid.",
+      content: `
+<p>
+  Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi bersama masyarakat setempat melaksanakan kerja bakti renovasi masjid pada Sabtu (23/8). Kegiatan gotong royong ini bertujuan memperbaiki fasilitas ibadah sekaligus mendukung pembangunan masjid menjadi dua tingkat agar lebih nyaman digunakan oleh warga.
+</p>
+
+<p>
+  Sejak pagi, mahasiswa KKN aktif membantu warga dalam proses renovasi. Salah satu bentuk partisipasi mereka adalah dengan mengangkat ember berisi semen secara estafet, yang kemudian digunakan untuk pengecoran lantai dua masjid. Metode estafet ini memudahkan proses pemindahan bahan bangunan dari bawah ke atas, sehingga pekerjaan dapat berlangsung lebih cepat dan efisien.
+</p>
+
+<p>
+  Kegiatan kerja bakti ini tidak hanya berfokus pada pembangunan fisik masjid, tetapi juga mempererat kebersamaan antara mahasiswa dan masyarakat Desa Cikadu. Semangat gotong royong terlihat jelas dari antusiasme warga yang terlibat, mulai dari remaja hingga orang tua.
+</p>
+
+</p>
+
+<p>
+  Sejak pagi, mahasiswa KKN aktif membantu warga dalam proses renovasi. Salah satu bentuk partisipasi mereka adalah dengan mengangkat ember berisi semen secara estafet, yang kemudian digunakan untuk pengecoran lantai dua masjid. Metode estafet ini memudahkan proses pemindahan bahan bangunan dari bawah ke atas, sehingga pekerjaan dapat berlangsung lebih cepat dan efisien.
+</p>
+
+<p>
+  Kegiatan kerja bakti ini tidak hanya berfokus pada pembangunan fisik masjid, tetapi juga mempererat kebersamaan antara mahasiswa dan masyarakat Desa Cikadu. Semangat gotong royong terlihat jelas dari antusiasme warga yang terlibat, mulai dari remaja hingga orang tua.
+</p>
+
+<p>
+  Melalui kegiatan ini, mahasiswa KKN berupaya memberikan kontribusi nyata bagi masyarakat. Renovasi masjid yang kini berkembang menjadi dua tingkat diharapkan dapat memberikan manfaat jangka panjang, baik sebagai tempat ibadah maupun pusat aktivitas keagamaan dan sosial di Desa Cikadu.
+</p>
+`,
+      image_url: "/Kerja-bakti.jpeg",
+      author: "KKN Kelompok 45",
+      category: "infrastruktur",
+      created_at: "2025-09-09T08:19:03Z",
     },
     {
-      id: '3',
-      title: 'Festival Budaya dan Seni Tradisional Desa Cikadu',
+      id: "3",
+      title: "Kegiatan Minggonan atau Mengaji di Desa Cikadu",
       excerpt:
-        'Penyelenggaraan festival budaya tahunan yang menampilkan tarian tradisional, musik daerah, dan pameran kerajinan tangan sebagai upaya pelestarian warisan budaya lokal.',
-      content:
-        'Festival budaya ini merupakan wadah untuk melestarikan dan memperkenalkan kekayaan budaya Desa Cikadu...',
+        "Kegiatan minggonan atau mengaji rutin dilaksanakan masyarakat Desa Cikadu setiap minggu di masjid dan mushola. Tradisi ini memperkuat pemahaman agama, menjaga silaturahmi antarwarga, sekaligus menjadi wadah kebersamaan sosial masyarakat desa.",
+      content: `
+<p>
+  Masyarakat Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi secara rutin melaksanakan kegiatan minggonan atau mengaji setiap minggu. Kegiatan ini berlangsung di masjid dan mushola desa dengan tujuan memperkuat pemahaman agama serta menjaga silaturahmi antarwarga.
+</p>
+
+<p>
+  Minggonan biasanya dilaksanakan pada malam hari setelah salat Isya. Rangkaian acara dimulai dengan pembacaan ayat suci Al-Qur’an secara bersama-sama, dilanjutkan dengan kajian singkat tentang akhlak, ibadah, serta nilai-nilai kehidupan sehari-hari. Anak-anak, remaja, hingga orang tua turut hadir sehingga suasana kegiatan berlangsung khidmat namun penuh kebersamaan.
+</p>
+
+<p>
+  Selain menjadi sarana belajar agama, kegiatan minggonan juga menjadi wadah untuk berdiskusi tentang persoalan sosial kemasyarakatan. Dengan demikian, masyarakat tidak hanya memperoleh ilmu keagamaan, tetapi juga mampu mempererat hubungan sosial yang harmonis.
+</p>
+
+<p>
+  Pelaksanaan kegiatan ini berjalan dengan tertib berkat dukungan masyarakat yang kompak menjaga tradisi. Dampaknya terlihat dari meningkatnya semangat belajar agama pada anak-anak serta tumbuhnya rasa kebersamaan antarwarga. Tradisi minggonan sekaligus memperkuat identitas Desa Cikadu sebagai masyarakat yang religius dan menjunjung tinggi nilai gotong royong.
+</p>
+`,
       image_url:
-        'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      author: 'Karang Taruna Desa Cikadu',
-      category: 'budaya',
-      created_at: '2024-01-10T19:00:00Z',
+        "/Minggonan.jpeg",
+      author: "KKN Kelompok 45",
+      category: "Keagamaan",
+      created_at: "2025-09-09T08:25:50Z",
+    },
+    {
+            id: '4',
+      title: 'Seminar Pencegahan Stunting dan Pengembangan UMKM di Desa Cikadu',
+      excerpt:
+        'Kegiatan ini memberikan wawasan kesehatan keluarga serta strategi usaha desa untuk mendorong terciptanya generasi sehat dan wirausaha mandiri.',
+      content:
+        `
+
+<p>
+  Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi menyelenggarakan seminar tentang pencegahan stunting dan pengembangan Usaha Mikro, Kecil, dan Menengah (UMKM) pada Sabtu, 23 Agustus 2025. Kegiatan ini berlangsung di Balai Latihan Kerja Komunitas dengan diikuti oleh warga dari berbagai kalangan, mulai dari ibu rumah tangga, pemuda, hingga pelaku usaha kecil.
+</p>
+
+<p>
+  Seminar dimulai dengan pemaparan mengenai stunting, meliputi penyebab, dampak jangka panjang, serta langkah-langkah pencegahan melalui pola makan sehat, perawatan ibu hamil, dan pemenuhan gizi anak. Materi ini diberikan untuk meningkatkan kesadaran masyarakat akan pentingnya kesehatan keluarga, khususnya generasi muda.
+</p>
+
+<p>
+  Selanjutnya, kegiatan dilanjutkan dengan seminar UMKM yang membahas peluang usaha di tingkat desa, strategi pemasaran, serta pengelolaan keuangan sederhana. Peserta diajak untuk memahami potensi lokal yang dapat dikembangkan menjadi produk bernilai jual, sehingga mampu meningkatkan perekonomian keluarga dan masyarakat.
+</p>
+
+<p>
+  Melalui dua rangkaian seminar ini, masyarakat mendapatkan wawasan yang bermanfaat baik di bidang kesehatan maupun ekonomi. Dampak yang diharapkan adalah terciptanya generasi yang lebih sehat serta lahirnya wirausaha desa yang mandiri. Kegiatan ini sekaligus menjadi bukti nyata kontribusi mahasiswa KKN dalam mendukung pembangunan masyarakat Desa Cikadu secara berkelanjutan.
+</p>
+`,
+      image_url:
+        '/Seminar-stunting-umkm.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Kesehatan',
+      created_at: '2025-09-09T08:25:50Z',
+    },
+    {
+      id: '5',
+      title: 'Mahasiswa KKN Ikut Sukseskan Perayaan 17 Agustus di Desa Cikadu',
+      excerpt:
+        'Mahasiswa KKN Desa Cikadu berpartisipasi dalam perayaan HUT ke-80 RI dengan mendukung lomba di sekolah dan desa. Kegiatan ini mempererat kebersamaan serta menumbuhkan semangat nasionalisme masyarakat.',
+      content:
+        'Program beasiswa ini merupakan hasil kerjasama antara pemerintah desa dengan berbagai pihak...',
+      image_url:
+        '/17-agustusan.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Ulang Tahun',
+      created_at: '2024-01-05T16:45:00Z',
+    },
+    {
+            id: '6',
+      title: 'Mahasiswa KKN Bantu Pelaksanaan Imunisasi di Sekolah Desa Cikadu',
+      excerpt:
+        'Mahasiswa KKN Desa Cikadu membantu pelaksanaan imunisasi anak di empat sekolah bersama Puskesmas Citarik. Mereka berperan dalam pengaturan siswa, pencatatan, dan pendampingan agar proses imunisasi berjalan lancar serta nyaman bagi anak-anak.',
+      content:
+        `
+
+<p>
+Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi turut membantu pelaksanaan imunisasi anak yang dilaksanakan oleh Puskesmas Citarik pada tahun 2025. Kegiatan ini berlangsung di empat sekolah, yaitu SDN Martadinata dan SDN Gentong pada 20 Agustus, serta SDN Cikadu dan MI Cikadu pada 22 Agustus 2025.
+</p>
+
+<p>
+Imunisasi diberikan kepada siswa kelas 1 (laki-laki dan perempuan) serta siswa kelas 6 khusus perempuan. Proses imunisasi dilakukan langsung oleh tenaga kesehatan dari Puskesmas Citarik dengan dukungan pihak sekolah. Mahasiswa KKN berperan membantu dalam pengaturan siswa, pencatatan data, serta mendampingi anak-anak agar lebih tenang saat proses imunisasi berlangsung.
+</p>
+
+<p>
+Seluruh kegiatan berjalan dengan tertib dan lancar. Anak-anak dipanggil secara bergiliran, sementara guru dan mahasiswa memastikan suasana tetap kondusif. Mahasiswa juga membantu memberikan edukasi ringan mengenai pentingnya imunisasi untuk menjaga kesehatan dan mencegah penyakit sejak dini.
+</p>
+
+<p>
+Melalui kegiatan ini, diharapkan siswa dapat terlindungi dari berbagai penyakit menular dan tumbuh menjadi generasi yang sehat. Kehadiran mahasiswa KKN menjadi bentuk dukungan nyata terhadap program kesehatan pemerintah sekaligus wujud pengabdian kepada masyarakat Desa Cikadu.
+</p>
+`,
+      image_url:
+        'Imunisasi.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Kesehatan',
+      created_at: '2024-01-03T08:20:00Z',
+
+    },
+        {
+      id: '7',
+      title: 'Mahasiswa KKN Ikut Serta dalam Peringatan Maulid Nabi Muhammad SAW di Desa Cikadu',
+      excerpt:
+        'Mahasiswa KKN Desa Cikadu ikut serta dalam peringatan Maulid Nabi Muhammad SAW di Kampung Batu Nunggul. Acara berlangsung khidmat dengan lantunan shalawat, tausiyah, dan doa bersama, sekaligus memperkuat nilai persaudaraan serta tradisi keagamaan masyarakat.',
+      content:
+        `
+
+<p>
+Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi ikut serta dalam peringatan Maulid Nabi Muhammad SAW yang dilaksanakan di Kampung Batu Nunggul, Desa Cikadu, pada Senin (25/8/2025). Kegiatan ini dihadiri oleh warga setempat, tokoh agama, serta para pemuda desa sebagai bentuk rasa syukur sekaligus upaya meneladani akhlak Nabi Muhammad SAW.
+</p>
+
+<p>
+Acara dimulai dengan pembacaan ayat suci Al-Qur’an, dilanjutkan dengan lantunan shalawat, tausiyah, dan doa bersama. Suasana khidmat dan penuh kebersamaan tercipta ketika masyarakat berkumpul untuk memperingati hari kelahiran Nabi. Selain itu, kegiatan juga diwarnai dengan partisipasi anak-anak dan remaja, yang menambah semarak acara tanpa mengurangi nilai religius.
+</p>
+
+<p>
+Keterlibatan mahasiswa KKN dalam kegiatan ini menunjukkan dukungan mereka terhadap pelestarian tradisi keagamaan di masyarakat. Melalui peringatan Maulid Nabi, warga semakin memperkuat nilai persaudaraan, gotong royong, serta semangat religius yang sudah mengakar di Desa Cikadu.
+</p>
+
+<p>
+Dengan terselenggaranya acara ini, masyarakat berharap tradisi keagamaan dapat terus terjaga dan menjadi sarana pembinaan generasi muda agar selalu meneladani ajaran Nabi Muhammad SAW dalam kehidupan sehari-hari.
+</p>
+
+`,
+      image_url:
+        '/Maulid.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Keagamaan',
+      created_at: '2024-01-03T08:20:00Z',
+    },
+        {
+      id: '8',
+      title: 'Peresmian peta administrasi dan peta mitigasi bencana, seminar edukasi, serta lomba untuk masyarakat',
+      excerpt:
+        'Mahasiswa KKN Desa Cikadu menggelar peresmian peta administrasi dan peta mitigasi bencana, seminar edukasi, serta lomba untuk masyarakat. Kegiatan ini bertujuan meningkatkan pengetahuan, kesadaran lingkungan, dan kebersamaan warga.',
+      content:
+`
+<h1>Rangkaian Kegiatan Mahasiswa KKN di Desa Cikadu</h1>
+
+<p>
+  Mahasiswa Kuliah Kerja Nyata (KKN) Desa Cikadu, Kecamatan Pelabuhanratu, Kabupaten Sukabumi menggelar rangkaian kegiatan pada Minggu (8/9), meliputi peresmian peta administrasi desa, peta mitigasi bencana, seminar edukasi, serta lomba untuk siswa dan masyarakat umum. Kegiatan ini dilaksanakan di balai desa dengan melibatkan perangkat desa, tokoh masyarakat, serta warga sekitar.
+</p>
+
+<p>
+  Acara diawali dengan peresmian peta administrasi desa dan peta mitigasi bencana. Peta tersebut berfungsi sebagai panduan tata wilayah sekaligus sarana informasi dalam menghadapi potensi bencana di Desa Cikadu. Kehadirannya diharapkan memudahkan masyarakat dalam memahami kondisi wilayah dan meningkatkan kesiapsiagaan bencana.
+</p>
+
+<p>
+  Selanjutnya, seminar edukasi menghadirkan tiga tema penting, yaitu anti bullying dan pencegahan kekerasan seksual, edukasi pengelolaan sampah, serta pentingnya menjaga lingkungan. Materi disampaikan secara interaktif agar mudah dipahami peserta yang terdiri dari pelajar hingga orang dewasa.
+</p>
+
+<p>
+  Rangkaian kegiatan ditutup dengan berbagai lomba untuk siswa dan masyarakat umum. Lomba ini tidak hanya bertujuan memeriahkan acara, tetapi juga menjadi sarana menumbuhkan kreativitas, kebersamaan, dan kepedulian sosial.
+</p>
+
+<p>
+  Melalui kegiatan ini, mahasiswa KKN berupaya memberikan kontribusi nyata dengan meningkatkan pengetahuan masyarakat, memperkuat kesadaran lingkungan, serta mendukung pembangunan Desa Cikadu yang lebih maju dan berdaya.
+</p>
+
+`,
+      image_url:
+        '/Peresmian-peta.jpeg',
+      author: 'KKN Kelompok 45',
+      category: 'Wilayah dan Lingkungan',
+      created_at: '2024-01-03T08:20:00Z',
     },
   ];
 
@@ -106,8 +294,8 @@ const NewsDetailPage: React.FC = () => {
   useEffect(() => {
     if (article) {
       const wordCount = article.content
-        .replace(/<[^>]*>/g, '')
-        .split(' ').length;
+        .replace(/<[^>]*>/g, "")
+        .split(" ").length;
       setReadingTime(Math.ceil(wordCount / 200));
     }
   }, [article]);
@@ -118,11 +306,11 @@ const NewsDetailPage: React.FC = () => {
       if (foundArticle) {
         setArticle(foundArticle);
       } else {
-        navigate('/news');
+        navigate("/news");
       }
     } catch (error) {
-      console.error('Error fetching article:', error);
-      navigate('/news');
+      console.error("Error fetching article:", error);
+      navigate("/news");
     } finally {
       setLoading(false);
     }
@@ -148,27 +336,27 @@ const NewsDetailPage: React.FC = () => {
   const getCategoryColor = (category: string) => {
     const colors = {
       pendidikan:
-        'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50',
+        "bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50",
       infrastruktur:
-        'bg-green-500/20 text-green-800 border border-green-500/30 dark:bg-green-900/30 dark:text-green-200 dark:border-green-500/50',
+        "bg-green-500/20 text-green-800 border border-green-500/30 dark:bg-green-900/30 dark:text-green-200 dark:border-green-500/50",
       budaya:
-        'bg-teal-500/20 text-teal-800 border border-teal-500/30 dark:bg-teal-900/30 dark:text-teal-200 dark:border-teal-500/50',
+        "bg-teal-500/20 text-teal-800 border border-teal-500/30 dark:bg-teal-900/30 dark:text-teal-200 dark:border-teal-500/50",
       ekonomi:
-        'bg-lime-500/20 text-lime-800 border border-lime-500/30 dark:bg-lime-900/30 dark:text-lime-200 dark:border-lime-500/50',
+        "bg-lime-500/20 text-lime-800 border border-lime-500/30 dark:bg-lime-900/30 dark:text-lime-200 dark:border-lime-500/50",
       lingkungan:
-        'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50',
+        "bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50",
     };
     return (
       colors[category as keyof typeof colors] ||
-      'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50'
+      "bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 dark:bg-emerald-900/30 dark:text-emerald-200 dark:border-emerald-500/50"
     );
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('id-ID', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+    return new Date(dateString).toLocaleDateString("id-ID", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -195,7 +383,7 @@ const NewsDetailPage: React.FC = () => {
             sudah dipindahkan.
           </p>
           <Button
-            onClick={() => navigate('/news')}
+            onClick={() => navigate("/news")}
             className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -213,9 +401,9 @@ const NewsDetailPage: React.FC = () => {
         className="py-16 md:py-20 relative overflow-hidden"
         style={{
           backgroundImage: `linear-gradient(135deg, rgba(5, 150, 105, 0.9) 0%, rgba(16, 185, 129, 0.8) 50%, rgba(4, 120, 87, 0.9) 100%), url('${article.image_url}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <div className="absolute inset-0 bg-black/20"></div>
@@ -229,7 +417,7 @@ const NewsDetailPage: React.FC = () => {
             <Button
               variant="ghost"
               icon={ArrowLeft}
-              onClick={() => navigate('/news')}
+              onClick={() => navigate("/news")}
               className="mb-8 text-white/90 hover:text-white hover:bg-white/20 backdrop-blur-sm border border-white/30 px-4 py-2 rounded-lg transition-all duration-300 font-semibold"
               disableScrollToTop={false}
             >
@@ -294,12 +482,12 @@ const NewsDetailPage: React.FC = () => {
                     data-scroll-to-top="false"
                     className={`flex items-center space-x-2 transition-all duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 font-semibold hover:bg-white/30 ${
                       isLiked
-                        ? 'text-emerald-200 hover:text-emerald-100'
-                        : 'text-white/90 hover:text-white'
+                        ? "text-emerald-200 hover:text-emerald-100"
+                        : "text-white/90 hover:text-white"
                     }`}
                   >
                     <Heart
-                      className={`h-5 w-5 ${isLiked ? 'fill-current' : ''}`}
+                      className={`h-5 w-5 ${isLiked ? "fill-current" : ""}`}
                     />
                     <span className="font-medium">Suka</span>
                   </button>
@@ -332,8 +520,8 @@ const NewsDetailPage: React.FC = () => {
                   className="text-gray-800 dark:text-gray-200 leading-relaxed space-y-6"
                   dangerouslySetInnerHTML={{ __html: article.content }}
                   style={{
-                    fontSize: '18px',
-                    lineHeight: '1.8',
+                    fontSize: "18px",
+                    lineHeight: "1.8",
                   }}
                 />
               </div>
@@ -435,7 +623,7 @@ const NewsDetailPage: React.FC = () => {
 
             <div className="text-center mt-12">
               <Button
-                onClick={() => navigate('/news')}
+                onClick={() => navigate("/news")}
                 variant="primary"
                 size="lg"
                 className="px-8 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl bg-emerald-600 hover:bg-emerald-700 hover:scale-105"
