@@ -21,6 +21,7 @@ const Footer = () => {
   const navItems = [
     { name: 'Beranda', path: '/', icon: Home },
     { name: 'Tentang', path: '/about', icon: Info },
+    { name: 'Organisasi', path: '/organization', icon: Users },
     { name: 'Berita', path: '/news', icon: Newspaper },
     { name: 'Ekonomi', path: '/business', icon: Briefcase },
   ];
