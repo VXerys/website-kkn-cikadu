@@ -292,7 +292,7 @@ kekuatan utama pembangunan berkelanjutan Desa Cikadu.
                 Lokasi & Geografis
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 leading-[1.1]">
-                Letak Geografis dan Alam
+                Lokasi & Geografis
               </h2>
               <div className="space-y-6 sm:space-y-8 text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-[1.7]">
                 <p className="border-l-4 border-emerald-500 dark:border-emerald-400 pl-5 sm:pl-6 italic text-base sm:text-lg md:text-xl font-medium text-gray-700 dark:text-gray-200">
