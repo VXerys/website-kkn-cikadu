@@ -514,11 +514,11 @@ fasilitas umum lainnya untuk mendukung aktivitas ekonomi dan sosial masyarakat.
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors duration-300">
-                      Kesejahteraan Sosial
+                      Pengembangan SDM
                     </h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Membangun sistem kesejahteraan sosial yang merata dan
-                      berkeadilan untuk seluruh lapisan masyarakat.
+                      Meningkatkan kualitas sumber daya manusia melalui program pendidikan, pelatihan 
+keterampilan, dan pembinaan kelembagaan masyarakat yang berkelanjutan.
                     </p>
                   </div>
                 </motion.div>
