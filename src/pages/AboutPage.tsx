@@ -18,7 +18,7 @@ const AboutPage: React.FC = () => {
     {
       icon: MapPin,
       label: 'Luas Wilayah',
-      value: '15 km²',
+      value: '10,84 km²',
       color: 'text-blue-500',
     },
     {
