@@ -97,7 +97,7 @@ const AboutPage: React.FC = () => {
             {/* Subtitle dengan spacing yang benar */}
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-100 max-w-5xl mx-auto leading-[1.6] drop-shadow-lg px-6 sm:px-8 lg:px-10 xl:px-0">
               Desa yang terletak di Kecamatan Palabuhanratu, Kabupaten Sukabumi, Jawa Barat. 
-Dengan luas wilayah 1.084 hektare dan populasi 9.743 jiwa, kami adalah komunitas 
+Kami adalah komunitas 
 yang berkembang pesat dengan tetap mempertahankan kearifan lokal dan nilai-nilai 
 gotong royong yang mengakar kuat.
             </p>
