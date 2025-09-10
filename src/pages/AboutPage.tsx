@@ -205,8 +205,8 @@ dan pelestarian lingkungan yang berkelanjutan.
               Potensi dan Keunggulan Desa
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto px-6 sm:px-4 lg:px-0 leading-[1.6]">
-              Kekayaan budaya dan tradisi yang diwariskan turun temurun, menjadi
-              identitas dan kekuatan pemersatu masyarakat Desa Cikadu.
+              Kekayaan sumber daya alam, potensi ekonomi, dan kearifan budaya lokal yang menjadi 
+kekuatan utama pembangunan berkelanjutan Desa Cikadu.
             </p>
           </motion.div>
 
