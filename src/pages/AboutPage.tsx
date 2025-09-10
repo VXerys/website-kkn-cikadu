@@ -486,11 +486,11 @@ dan UMKM untuk meningkatkan kesejahteraan masyarakat secara berkelanjutan.
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors duration-300">
-                      Inovasi dan Teknologi
+                      Pembangunan Infrastruktur
                     </h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Mengadopsi teknologi modern dan inovasi untuk meningkatkan
-                      pelayanan publik dan kesejahteraan masyarakat.
+                      Mempercepat pembangunan infrastruktur dasar berupa jalan, jembatan, irigasi, dan 
+fasilitas umum lainnya untuk mendukung aktivitas ekonomi dan sosial masyarakat.
                     </p>
                   </div>
                 </motion.div>
