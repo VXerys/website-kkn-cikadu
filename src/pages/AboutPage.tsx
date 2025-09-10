@@ -156,10 +156,10 @@ telah bertransformasi menjadi desa swakarya dengan klasifikasi "MAJU" yang memad
 kearifan tradisional dengan pembangunan modern.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-[1.7]">
-                  Selama lebih dari satu abad, masyarakat Cikadu mempertahankan
-                  komitmen terhadap kehidupan berkelanjutan dan gotong royong.
-                  Kami bangga melestarikan kearifan lokal sambil membuka diri
-                  pada perkembangan zaman.
+                  Selama lebih dari lima dekade, masyarakat Desa Cikadu terus membangun peradaban yang 
+berkelanjutan. Dengan dipimpin oleh Kepala Desa Neng Elva Yuliyanti dan didukung oleh 
+perangkat desa yang kompeten, kami berkomitmen menciptakan tata kelola pemerintahan 
+yang transparan dan partisipatif.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-[1.7]">
                   Saat ini, Desa Cikadu menjadi contoh pembangunan desa yang
