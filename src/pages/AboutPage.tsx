@@ -39,9 +39,7 @@ const AboutPage: React.FC = () => {
     {
       title: 'Pertanian dan Perkebunan Berkelanjutan',
       description:
-        'Dengan lahan sawah seluas 119 hektare, ladang 100 hektare, dan perkebunan 265 hektare, 
-pisang menjadi komoditas unggulan kami. Didukung sistem irigasi sepanjang 1.600 meter 
-dan 20 mata air alami, sektor pertanian menyerap 4.645 tenaga kerja sebagai petani 
+        'Dengan lahan sawah seluas 119 hektare, ladang 100 hektare, dan perkebunan 265 hektare, pisang menjadi komoditas unggulan kami. Didukung sistem irigasi sepanjang 1.600 meter dan 20 mata air alami, sektor pertanian menyerap 4.645 tenaga kerja sebagai petani 
 dan buruh tani.',
       image:
         'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
