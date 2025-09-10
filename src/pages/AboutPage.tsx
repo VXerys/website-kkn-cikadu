@@ -301,12 +301,10 @@ strategis yang berbatasan dengan Desa Sampora di utara, Desa Tonjong di selatan,
 Desa Pasirsuren/Limusninggal di timur, dan Desa Buniwangi/Citarik di barat.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-[1.7]">
-                  Kawasan ini diberkahi mata air alami yang jernih, sungai
-                  berkelok yang menenangkan, dan tanah subur yang telah
-                  mendukung pertanian selama berabad-abad. Komitmen kami
-                  terhadap konservasi lingkungan memastikan bahwa generasi
-                  mendatang akan mewarisi keindahan alam yang sama yang kami
-                  nikmati hari ini.
+                  Keunggulan geografis kami terletak pada kekayaan sumber daya air dengan 20 mata air 
+alami, 40 sumur gali, dan 30 sumur pompa yang memenuhi kebutuhan air bersih masyarakat. 
+Wilayah hutan seluas 257 hektare menjadi paru-paru desa yang menjaga keseimbangan 
+ekosistem dan keanekaragaman hayati.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-[1.7]">
                   Satwa liar berkembang pesat di hutan lindung kami, dan praktik
