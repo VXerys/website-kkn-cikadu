@@ -350,8 +350,8 @@ namun tetap mempertahankan ketenangan suasana pedesaan yang asri dan alami.
               Visi dan Misi Desa
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Menjadi desa mandiri dan berkelanjutan yang memadukan kearifan
-              lokal dengan kemajuan modern untuk kesejahteraan masyarakat.
+              Komitmen kami dalam mewujudkan desa mandiri dan berkelanjutan yang sejahtera, 
+berkeadilan, dan berwawasan lingkungan untuk kesejahteraan seluruh masyarakat.
             </p>
           </motion.div>
 
