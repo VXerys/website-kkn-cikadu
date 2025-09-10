@@ -51,9 +51,9 @@ const AboutPage: React.FC = () => {
         'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     },
     {
-      title: 'Kebun Komunitas Berkelanjutan',
+      title: 'Pusat Ekonomi dan Kewirausahaan',
       description:
-        'Kebun Komunitas Berkelanjutan - Praktik pertanian organik turun-temurun yang menciptakan harmoni sempurna antara manusia dan alam, menghasilkan panen berlimpah penuh berkah.',
+        'Lebih dari 1.175 warga menekuni bidang wiraswasta dan perdagangan, didukung oleh 291 karyawan profesional. Keberagaman mata pencaharian ini menciptakan ekonomi desa yang dinamis dan berkelanjutan dengan anggaran pembangunan mencapai Rp 1,5 miliar.',
       image:
         'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     },
