@@ -199,10 +199,10 @@ dan pelestarian lingkungan yang berkelanjutan.
           >
             <div className="inline-flex items-center px-4 sm:px-5 py-2.5 rounded-full bg-emerald-200 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 text-sm sm:text-base font-semibold mb-6 sm:mb-8">
               <Award className="w-4 h-4 mr-2" />
-              Budaya Lokal
+              Potensi & Keunggulan
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 leading-[1.1] px-4 sm:px-0">
-              Budaya dan Tradisi
+              Potensi dan Keunggulan Desa
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto px-6 sm:px-4 lg:px-0 leading-[1.6]">
               Kekayaan budaya dan tradisi yang diwariskan turun temurun, menjadi
