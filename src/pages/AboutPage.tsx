@@ -29,8 +29,8 @@ const AboutPage: React.FC = () => {
     },
     {
       icon: Award,
-      label: 'Prestas',
-      value: '15+',
+      label: 'Kepala Keluarga',
+      value: '3.034',
       color: 'text-orange-500',
     },
   ];
