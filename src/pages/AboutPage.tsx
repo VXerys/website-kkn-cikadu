@@ -150,10 +150,10 @@ gotong royong yang mengakar kuat.
               </h2>
               <div className="space-y-6 sm:space-y-8 text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-[1.7]">
                 <p className="border-l-4 border-emerald-500 dark:border-emerald-400 pl-5 sm:pl-6 italic text-base sm:text-lg md:text-xl font-medium text-gray-700 dark:text-gray-200">
-                  Didirikan pada tahun 1892, Desa Cikadu bermula dari pemukiman
-                  pertanian sederhana yang dibangun oleh keluarga-keluarga
-                  perintis. Seiring waktu, desa ini berkembang menjadi komunitas
-                  yang memadukan tradisi luhur dengan kemajuan modern.
+                  Desa Cikadu resmi terbentuk pada tahun 1970 dan telah berkembang menjadi salah satu desa 
+maju di Kecamatan Palabuhanratu. Berawal dari komunitas pertanian sederhana, kini kami 
+telah bertransformasi menjadi desa swakarya dengan klasifikasi "MAJU" yang memadukan 
+kearifan tradisional dengan pembangunan modern.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-[1.7]">
                   Selama lebih dari satu abad, masyarakat Cikadu mempertahankan
