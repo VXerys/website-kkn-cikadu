@@ -44,9 +44,9 @@ const AboutPage: React.FC = () => {
         'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     },
     {
-      title: 'Kerajinan Tangan Warisan Emas',
+      title: 'Pusat Pendidikan Berkualitas',
       description:
-        'Kerajinan Tradisional - Pengrajin lokal melestarikan seni gerabah, tenun, dan ukiran kayu yang telah diwariskan secara turun temurun.',
+        'Desa Cikadu memiliki infrastruktur pendidikan lengkap mulai dari 9 gedung PAUD, 6 sekolah dasar, 5 SMP, hingga 2 SMA. Dengan 2.130 siswa dan tenaga pendidik yang berkualitas, kami berkomitmen mencerdaskan generasi masa depan',
       image:
         'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     },
