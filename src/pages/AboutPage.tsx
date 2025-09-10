@@ -536,9 +536,9 @@ keterampilan, dan pembinaan kelembagaan masyarakat yang berkelanjutan.
           >
             <div className="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-8 lg:p-10 shadow-2xl">
               <p className="text-white text-lg lg:text-xl font-medium leading-relaxed max-w-4xl">
-                Bersama-sama kita wujudkan visi dan misi desa melalui
-                partisipasi aktif, inovasi berkelanjutan, dan semangat gotong
-                royong yang mengakar kuat dalam budaya kita.
+                Dengan dukungan anggaran pembangunan Rp 1,5 miliar dan partisipasi aktif 3.034 kepala 
+keluarga, bersama-sama kita wujudkan Desa Cikadu yang lebih maju, sejahtera, dan 
+berkelanjutan untuk generasi mendatang.
               </p>
             </div>
           </motion.div>
