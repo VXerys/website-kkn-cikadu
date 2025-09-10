@@ -387,9 +387,9 @@ berkeadilan, dan berwawasan lingkungan untuk kesejahteraan seluruh masyarakat.
               <div className="relative">
                 <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-emerald-500 to-teal-500 rounded-full"></div>
                 <p className="text-lg lg:text-xl text-gray-700 leading-relaxed pl-6 font-medium">
-                  "Menjadi desa mandiri dan berkelanjutan yang memadukan
-                  kearifan lokal dengan kemajuan modern untuk kesejahteraan
-                  masyarakat yang berkeadilan dan berwawasan lingkungan."
+                  "Terwujudnya Desa Cikadu sebagai desa maju, mandiri, dan berkelanjutan yang berbasis 
+kearifan lokal, pemberdayaan masyarakat, dan tata kelola pemerintahan yang baik 
+untuk kesejahteraan bersama."
                 </p>
               </div>
             </motion.div>
