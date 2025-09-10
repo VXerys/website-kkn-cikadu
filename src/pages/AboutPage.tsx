@@ -458,11 +458,11 @@ melalui sistem administrasi modern dan partisipasi aktif masyarakat.
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors duration-300">
-                      Pemberdayaan Masyarakat
+                       Pemberdayaan Ekonomi
                     </h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Meningkatkan kapasitas dan keterampilan masyarakat melalui
-                      program pelatihan dan pemberdayaan ekonomi.
+                      Mengembangkan potensi ekonomi lokal melalui optimalisasi sektor pertanian, perkebunan, 
+dan UMKM untuk meningkatkan kesejahteraan masyarakat secara berkelanjutan.
                     </p>
                   </div>
                 </motion.div>
