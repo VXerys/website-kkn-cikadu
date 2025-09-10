@@ -307,10 +307,9 @@ Wilayah hutan seluas 257 hektare menjadi paru-paru desa yang menjaga keseimbanga
 ekosistem dan keanekaragaman hayati.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-[1.7]">
-                  Satwa liar berkembang pesat di hutan lindung kami, dan praktik
-                  pertanian berkelanjutan telah menciptakan ekosistem harmonis
-                  di mana aktivitas manusia dan alam hidup berdampingan dalam
-                  kedamaian yang menginspirasi.
+                  Aksesibilitas yang baik dengan jarak 12 km dari pusat pemerintahan kecamatan dan 
+kabupaten, serta 97 km dari ibukota provinsi, menjadikan Desa Cikadu mudah dijangkau 
+namun tetap mempertahankan ketenangan suasana pedesaan yang asri dan alami.
                 </p>
               </div>
             </motion.div>
