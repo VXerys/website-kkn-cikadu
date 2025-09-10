@@ -162,10 +162,9 @@ perangkat desa yang kompeten, kami berkomitmen menciptakan tata kelola pemerinta
 yang transparan dan partisipatif.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-[1.7]">
-                  Saat ini, Desa Cikadu menjadi contoh pembangunan desa yang
-                  seimbang antara kemajuan dan pelestarian budaya. Kami
-                  menyambut tamu dengan tangan terbuka untuk merasakan kehidupan
-                  desa yang autentik..
+                  Saat ini, Desa Cikadu menjadi rujukan pengembangan desa di wilayah Sukabumi Selatan 
+dengan berbagai prestasi dalam bidang pembangunan infrastruktur, pemberdayaan masyarakat, 
+dan pelestarian lingkungan yang berkelanjutan.
                 </p>
               </div>
             </motion.div>
