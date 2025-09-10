@@ -440,11 +440,11 @@ untuk kesejahteraan bersama."
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors duration-300">
-                      Kelestarian Lingkungan
+                      Tata Kelola Pemerintahan
                     </h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Menjaga dan melestarikan lingkungan hidup melalui praktik
-                      pembangunan berkelanjutan dan ramah lingkungan.
+                      Meningkatkan kualitas pelayanan publik dan transparansi pengelolaan keuangan desa 
+melalui sistem administrasi modern dan partisipasi aktif masyarakat.
                     </p>
                   </div>
                 </motion.div>
