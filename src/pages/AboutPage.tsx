@@ -12,7 +12,7 @@ const AboutPage: React.FC = () => {
     {
       icon: Users,
       label: 'Penduduk',
-      value: '2,500+',
+      value: '9.743 Jiwa',
       color: 'text-emerald-500',
     },
     {
