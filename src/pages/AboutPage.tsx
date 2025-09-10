@@ -37,9 +37,12 @@ const AboutPage: React.FC = () => {
 
   const traditions = [
     {
-      title: 'Festival Panen Raya yang Memukau',
+      title: 'Pertanian dan Perkebunan Berkelanjutan',
       description:
-        'Festival Panen Tahunan - Perayaan syukur hasil panen dengan pertunjukan seni tradisional, kuliner khas daerah, dan acara kebersamaan warga.',
+        'Dengan lahan sawah seluas 119 hektare, ladang 100 hektare, dan perkebunan 265 hektare, 
+pisang menjadi komoditas unggulan kami. Didukung sistem irigasi sepanjang 1.600 meter 
+dan 20 mata air alami, sektor pertanian menyerap 4.645 tenaga kerja sebagai petani 
+dan buruh tani.',
       image:
         'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
     },
