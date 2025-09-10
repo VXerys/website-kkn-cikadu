@@ -28,7 +28,7 @@ const AboutPage: React.FC = () => {
       color: 'text-purple-500',
     },
     {
-      icon: Users,
+      icon: Crown,
       label: 'Kepala Keluarga',
       value: '3.034',
       color: 'text-orange-500',
