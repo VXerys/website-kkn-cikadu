@@ -24,7 +24,7 @@ const AboutPage: React.FC = () => {
     {
       icon: Calendar,
       label: 'Berdiri Sejak',
-      value: '1892',
+      value: '1970',
       color: 'text-purple-500',
     },
     {
