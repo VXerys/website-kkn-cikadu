@@ -296,11 +296,9 @@ kekuatan utama pembangunan berkelanjutan Desa Cikadu.
               </h2>
               <div className="space-y-6 sm:space-y-8 text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-[1.7]">
                 <p className="border-l-4 border-emerald-500 dark:border-emerald-400 pl-5 sm:pl-6 italic text-base sm:text-lg md:text-xl font-medium text-gray-700 dark:text-gray-200">
-                  Desa Cikadu terletak strategis di lembah subur yang memukau,
-                  dikelilingi perbukitan hijau yang mempesona dan hutan pristine
-                  yang menyejukkan jiwa. Wilayah ini dikaruniai iklim tropis
-                  yang sempurna dengan empat musim yang berbeda, masing-masing
-                  membawa keindahan dan peluang pertanian yang luar biasa.
+                  Desa Cikadu terletak pada koordinat 106.612609° BT dan -6.973779° LS, dengan posisi 
+strategis yang berbatasan dengan Desa Sampora di utara, Desa Tonjong di selatan, 
+Desa Pasirsuren/Limusninggal di timur, dan Desa Buniwangi/Citarik di barat.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-[1.7]">
                   Kawasan ini diberkahi mata air alami yang jernih, sungai
