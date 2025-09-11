@@ -35,7 +35,7 @@ const QuickInfoGrid: React.FC = () => {
       path: '/news',
       gradient: 'from-blue-500 to-indigo-600',
       iconBg: 'bg-blue-500',
-      stats: '15+ Program',
+      stats: '5+ Program',
       badge: 'Aktif',
     },
     {
