@@ -55,9 +55,7 @@ const HomePage: React.FC = () => {
       transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
       className="text-base md:text-xl mb-10 text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
     >
-      Bergabunglah dengan mahasiswa KKN dalam membangun masa depan cerah
-      Desa Cikadu melalui program-program inovatif yang berkelanjutan dan
-      berdampak nyata.
+      Mari bersama KKN membangun masa depan Desa Cikadu dengan program berkelanjutan yang memberikan dampak nyata.
     </motion.p>
 
     <motion.div
