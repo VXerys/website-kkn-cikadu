@@ -256,4 +256,4 @@ const QuickInfoGrid: React.FC = () => {
   );
 };
 
-export default QuickInfoGri
+export default QuickInfoGrid;
