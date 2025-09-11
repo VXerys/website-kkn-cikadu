@@ -9,10 +9,12 @@ import {
   Info,
   Newspaper,
   Briefcase,
-  Users, // Fixed: Added missing Users import
+  Users,
   MessageCircle,
   MapPin,
   ExternalLink,
+  ChevronUp,
+  Clock,
 } from 'lucide-react';
 
 // Import logo sebagai URL - sesuaikan path dengan struktur folder
@@ -116,135 +118,156 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+    <>
+      {/* Floating Back to Top Button - Mobile Optimized */}
+      <button
+        onClick={handleScrollToTop}
+        className="fixed bottom-4 right-4 z-50 p-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-emerald-500/50 lg:bottom-6 lg:right-6"
+        aria-label="Kembali ke bagian atas halaman"
+      >
+        <ChevronUp className="h-4 w-4 lg:h-5 lg:w-5" />
+      </button>
+
+      <footer className="bg-gray-900 dark:bg-black text-white">
+        {/* Mobile-First Layout */}
+        <div className="px-4 py-6 lg:hidden">
           
-          {/* Brand Section dengan Logo SVG */}
-          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center space-x-3">
+          {/* Mobile Header - Logo & Brand */}
+          <div className="text-center pb-6 border-b border-gray-800">
+            <div className="flex items-center justify-center space-x-3 mb-3">
               <img
                 src={logoUrl}
                 alt="Logo Desa Cikadu"
-                className="h-12 w-12 lg:h-14 lg:w-14 object-contain"
+                className="h-8 w-8 object-contain"
                 onError={(e) => {
-                  // Fallback jika logo tidak dapat dimuat
-                  e.currentTarget.style.display = 'none';
+                  // Fallback dengan placeholder circular
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const placeholder = document.createElement('div');
+                  placeholder.className = 'h-8 w-8 bg-emerald-600 rounded-full flex items-center justify-center';
+                  placeholder.innerHTML = '<span class="text-white font-bold text-sm">C</span>';
+                  target.parentNode?.insertBefore(placeholder, target);
                 }}
               />
-              <div className="flex flex-col">
-                <span className="text-xl lg:text-2xl font-bold text-emerald-400">
-                  Desa Cikadu
-                </span>
-                <span className="text-sm text-gray-400">
-                  Pelabuhanratu, Sukabumi
-                </span>
+              <div className="text-left">
+                <span className="text-lg font-bold text-emerald-400 block">Desa Cikadu</span>
+                <span className="text-xs text-gray-400">Pelabuhanratu, Sukabumi</span>
               </div>
             </div>
-            
-            <p className="text-gray-400 text-sm lg:text-base leading-relaxed">
-              Temukan keajaiban dan pesona budaya desa kami melalui pengalaman
-              interaktif yang menakjubkan dan koneksi komunitas yang menghangatkan hati.
+            <p className="text-sm text-gray-400 max-w-xs mx-auto leading-relaxed">
+              Membangun desa maju melalui inovasi dan partisipasi masyarakat
             </p>
-
-            <div className="flex flex-wrap gap-2 mt-4">
-              <button
-                onClick={handleScrollToTop}
-                className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs rounded-md transition-all duration-200 font-semibold shadow-sm hover:shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-                aria-label="Kembali ke bagian atas halaman"
-              >
-                Kembali ke Atas
-              </button>
-            </div>
           </div>
 
-          {/* Quick Navigation Links */}
-          <div className="space-y-3 lg:space-y-4">
-            <h3 className="text-base lg:text-lg font-semibold text-white border-b-2 border-emerald-400 pb-2 inline-block">
+          {/* Mobile Navigation Grid */}
+          <div className="py-6 border-b border-gray-800">
+            <h3 className="text-sm font-semibold text-white mb-4 text-center">
               Navigasi Cepat
             </h3>
-            <ul className="space-y-2 lg:space-y-3">
+            <div className="grid grid-cols-2 gap-3">
               {navItems.map((item, index) => {
                 const IconComponent = item.icon;
                 return (
-                  <li key={index}>
-                    <button
-                      onClick={() => handleNavigation(item.path)}
-                      className="flex items-center space-x-3 text-gray-400 hover:text-emerald-400 transition-all duration-200 text-sm lg:text-base group w-full text-left font-medium p-2 rounded-md hover:bg-gray-800"
-                      aria-label={`Navigasi ke halaman ${item.name}`}
-                    >
-                      <IconComponent className="h-4 w-4 group-hover:scale-110 transition-transform flex-shrink-0" />
-                      <span className="group-hover:translate-x-1 transition-transform">
-                        {item.name}
-                      </span>
-                    </button>
-                  </li>
+                  <button
+                    key={index}
+                    onClick={() => handleNavigation(item.path)}
+                    className="flex flex-col items-center space-y-2 p-3 bg-gray-800 hover:bg-emerald-600 rounded-lg transition-all duration-200 group hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                    aria-label={`Navigasi ke halaman ${item.name}`}
+                  >
+                    <IconComponent className="h-5 w-5 text-gray-300 group-hover:text-white transition-colors" />
+                    <span className="text-xs text-gray-300 group-hover:text-white font-medium text-center transition-colors">
+                      {item.name}
+                    </span>
+                  </button>
                 );
               })}
-            </ul>
-          </div>
-
-          {/* Contact Information */}
-          <div className="space-y-3 lg:space-y-4">
-            <h3 className="text-base lg:text-lg font-semibold text-white border-b-2 border-emerald-400 pb-2 inline-block">
-              Informasi Kontak
-            </h3>
-            <ul className="space-y-4 text-sm lg:text-base">
-              
-              {/* Alamat */}
-              <li className="flex items-start space-x-3 text-gray-400">
-                <MapPin className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  {contactInfo.address}
-                </span>
-              </li>
-
-              {/* Telepon */}
-              <li className="flex items-center space-x-3 text-gray-400">
-                <Phone className="h-5 w-5 text-emerald-400 flex-shrink-0" />
-                <a
-                  href={`tel:${contactInfo.phone}`}
-                  className="hover:text-emerald-400 transition-colors hover:underline font-medium focus:outline-none focus:text-emerald-400"
-                  aria-label={`Telepon ${contactInfo.phone}`}
-                >
-                  {contactInfo.phone}
-                </a>
-              </li>
-
-              {/* Email */}
-              <li className="flex items-center space-x-3 text-gray-400">
-                <Mail className="h-5 w-5 text-emerald-400 flex-shrink-0" />
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="hover:text-emerald-400 transition-colors break-all hover:underline font-medium focus:outline-none focus:text-emerald-400"
-                  aria-label={`Email ke ${contactInfo.email}`}
-                >
-                  {contactInfo.email}
-                </a>
-              </li>
-            </ul>
-
-            {/* Call to Action Button */}
-            <div className="pt-2">
-              <button
-                onClick={() => handleNavigation('/about')}
-                className="inline-flex items-center space-x-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-md transition-all duration-200 hover:scale-105 font-semibold shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-                aria-label="Pelajari lebih lanjut tentang Desa Cikadu"
-              >
-                <MessageCircle className="h-4 w-4" />
-                <span>Tentang Kami</span>
-              </button>
             </div>
           </div>
 
-          {/* Social Media & Additional Info */}
-          <div className="space-y-3 lg:space-y-4">
-            <h3 className="text-base lg:text-lg font-semibold text-white border-b-2 border-emerald-400 pb-2 inline-block">
+          {/* Mobile Contact Information */}
+          <div className="py-6 border-b border-gray-800">
+            <h3 className="text-sm font-semibold text-white mb-4 text-center">
+              Informasi Kontak
+            </h3>
+            <div className="space-y-3">
+              
+              {/* Address Card */}
+              <div className="flex items-start space-x-3 p-3 bg-gray-800 rounded-lg">
+                <MapPin className="h-4 w-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    Desa Cikadu, Pelabuhanratu, Sukabumi
+                  </p>
+                  <button
+                    onClick={() => window.open(`https://maps.google.com/?q=${encodeURIComponent('Desa Cikadu, Pelabuhanratu, Sukabumi')}`, '_blank')}
+                    className="text-xs text-emerald-400 hover:text-emerald-300 mt-1 underline focus:outline-none"
+                  >
+                    Lihat di Maps
+                  </button>
+                </div>
+              </div>
+
+              {/* Phone & Email Cards */}
+              <div className="grid grid-cols-1 gap-3">
+                <a
+                  href={`tel:${contactInfo.phone}`}
+                  className="flex items-center space-x-3 p-3 bg-gray-800 hover:bg-emerald-600 rounded-lg transition-colors group focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                >
+                  <Phone className="h-4 w-4 text-emerald-400 group-hover:text-white flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-gray-400 group-hover:text-emerald-100">Telepon</p>
+                    <p className="text-sm text-gray-300 group-hover:text-white font-medium">
+                      {contactInfo.phone}
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="flex items-center space-x-3 p-3 bg-gray-800 hover:bg-emerald-600 rounded-lg transition-colors group focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                >
+                  <Mail className="h-4 w-4 text-emerald-400 group-hover:text-white flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-gray-400 group-hover:text-emerald-100">Email</p>
+                    <p className="text-sm text-gray-300 group-hover:text-white font-medium truncate">
+                      {contactInfo.email}
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Operating Hours */}
+          <div className="py-6 border-b border-gray-800">
+            <div className="flex items-center justify-center space-x-2 mb-3">
+              <Clock className="h-4 w-4 text-emerald-400" />
+              <h3 className="text-sm font-semibold text-white">Jam Pelayanan</h3>
+            </div>
+            <div className="bg-gray-800 rounded-lg p-4">
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div className="text-center">
+                  <p className="text-gray-400 text-xs mb-1">Senin - Jumat</p>
+                  <p className="text-emerald-400 font-semibold">08:00 - 16:00</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-gray-400 text-xs mb-1">Sabtu</p>
+                  <p className="text-emerald-400 font-semibold">08:00 - 12:00</p>
+                </div>
+              </div>
+              <div className="text-center mt-3 pt-3 border-t border-gray-700">
+                <p className="text-gray-400 text-xs mb-1">Minggu</p>
+                <p className="text-red-400 font-semibold text-sm">Tutup</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Social Media */}
+          <div className="py-6 border-b border-gray-800">
+            <h3 className="text-sm font-semibold text-white mb-4 text-center">
               Media Sosial
             </h3>
-            
-            {/* Social Media Icons */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex justify-center gap-4">
               {socialMediaLinks.map((social, index) => {
                 const IconComponent = social.icon;
                 return (
@@ -261,68 +284,231 @@ const Footer: React.FC = () => {
                 );
               })}
             </div>
+          </div>
 
-            <p className="text-xs lg:text-sm text-gray-400 leading-relaxed">
-              Ikuti media sosial kami untuk mendapatkan informasi terkini tentang kegiatan, 
-              pengumuman, dan perkembangan desa.
-            </p>
+          {/* Mobile Footer Bottom */}
+          <div className="pt-6">
+            <div className="text-center space-y-3">
+              <p className="text-xs text-gray-400">
+                &copy; {new Date().getFullYear()} Desa Cikadu
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 text-xs">
+                {footerLinks.map((link, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleNavigation(link.path)}
+                    className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium focus:outline-none focus:text-emerald-400"
+                    aria-label={`Navigasi ke halaman ${link.name}`}
+                  >
+                    {link.name}
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-gray-500 max-w-sm mx-auto leading-relaxed">
+                Dikembangkan dengan ❤️ untuk kemajuan masyarakat desa
+              </p>
+            </div>
+          </div>
+        </div>
 
-            {/* Jam Operasional */}
-            <div className="mt-6 p-4 bg-gray-800 rounded-lg border-l-4 border-emerald-400">
-              <h4 className="font-semibold text-emerald-400 mb-2">Jam Pelayanan</h4>
-              <div className="text-sm text-gray-300 space-y-1">
-                <div className="flex justify-between">
-                  <span>Senin - Jumat:</span>
-                  <span className="font-medium">08:00 - 16:00</span>
+        {/* Desktop Layout - Tetap Original */}
+        <div className="hidden lg:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            
+            {/* Brand Section dengan Logo SVG */}
+            <div className="space-y-4 sm:col-span-2 lg:col-span-1">
+              <div className="flex items-center space-x-3">
+                <img
+                  src={logoUrl}
+                  alt="Logo Desa Cikadu"
+                  className="h-12 w-12 lg:h-14 lg:w-14 object-contain"
+                  onError={(e) => {
+                    // Fallback jika logo tidak dapat dimuat
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+                <div className="flex flex-col">
+                  <span className="text-xl lg:text-2xl font-bold text-emerald-400">
+                    Desa Cikadu
+                  </span>
+                  <span className="text-sm text-gray-400">
+                    Pelabuhanratu, Sukabumi
+                  </span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Sabtu:</span>
-                  <span className="font-medium">08:00 - 12:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Minggu:</span>
-                  <span className="font-medium text-red-400">Tutup</span>
+              </div>
+              
+              <p className="text-gray-400 text-sm lg:text-base leading-relaxed">
+                Temukan keajaiban dan pesona budaya desa kami melalui pengalaman
+                interaktif yang menakjubkan dan koneksi komunitas yang menghangatkan hati.
+              </p>
+            </div>
+
+            {/* Quick Navigation Links */}
+            <div className="space-y-3 lg:space-y-4">
+              <h3 className="text-base lg:text-lg font-semibold text-white border-b-2 border-emerald-400 pb-2 inline-block">
+                Navigasi Cepat
+              </h3>
+              <ul className="space-y-2 lg:space-y-3">
+                {navItems.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <li key={index}>
+                      <button
+                        onClick={() => handleNavigation(item.path)}
+                        className="flex items-center space-x-3 text-gray-400 hover:text-emerald-400 transition-all duration-200 text-sm lg:text-base group w-full text-left font-medium p-2 rounded-md hover:bg-gray-800"
+                        aria-label={`Navigasi ke halaman ${item.name}`}
+                      >
+                        <IconComponent className="h-4 w-4 group-hover:scale-110 transition-transform flex-shrink-0" />
+                        <span className="group-hover:translate-x-1 transition-transform">
+                          {item.name}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            {/* Contact Information */}
+            <div className="space-y-3 lg:space-y-4">
+              <h3 className="text-base lg:text-lg font-semibold text-white border-b-2 border-emerald-400 pb-2 inline-block">
+                Informasi Kontak
+              </h3>
+              <ul className="space-y-4 text-sm lg:text-base">
+                
+                {/* Alamat */}
+                <li className="flex items-start space-x-3 text-gray-400">
+                  <MapPin className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">
+                    {contactInfo.address}
+                  </span>
+                </li>
+
+                {/* Telepon */}
+                <li className="flex items-center space-x-3 text-gray-400">
+                  <Phone className="h-5 w-5 text-emerald-400 flex-shrink-0" />
+                  <a
+                    href={`tel:${contactInfo.phone}`}
+                    className="hover:text-emerald-400 transition-colors hover:underline font-medium focus:outline-none focus:text-emerald-400"
+                    aria-label={`Telepon ${contactInfo.phone}`}
+                  >
+                    {contactInfo.phone}
+                  </a>
+                </li>
+
+                {/* Email */}
+                <li className="flex items-center space-x-3 text-gray-400">
+                  <Mail className="h-5 w-5 text-emerald-400 flex-shrink-0" />
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="hover:text-emerald-400 transition-colors break-all hover:underline font-medium focus:outline-none focus:text-emerald-400"
+                    aria-label={`Email ke ${contactInfo.email}`}
+                  >
+                    {contactInfo.email}
+                  </a>
+                </li>
+              </ul>
+
+              {/* Call to Action Button */}
+              <div className="pt-2">
+                <button
+                  onClick={() => handleNavigation('/about')}
+                  className="inline-flex items-center space-x-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded-md transition-all duration-200 hover:scale-105 font-semibold shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                  aria-label="Pelajari lebih lanjut tentang Desa Cikadu"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  <span>Tentang Kami</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Social Media & Additional Info */}
+            <div className="space-y-3 lg:space-y-4">
+              <h3 className="text-base lg:text-lg font-semibold text-white border-b-2 border-emerald-400 pb-2 inline-block">
+                Media Sosial
+              </h3>
+              
+              {/* Social Media Icons */}
+              <div className="flex flex-wrap gap-3">
+                {socialMediaLinks.map((social, index) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`p-3 bg-gray-800 rounded-lg ${social.hoverColor} transition-all duration-200 hover:scale-105 group shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-900`}
+                      aria-label={social.ariaLabel}
+                    >
+                      <IconComponent className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                    </a>
+                  );
+                })}
+              </div>
+
+              <p className="text-xs lg:text-sm text-gray-400 leading-relaxed">
+                Ikuti media sosial kami untuk mendapatkan informasi terkini tentang kegiatan, 
+                pengumuman, dan perkembangan desa.
+              </p>
+
+              {/* Jam Operasional */}
+              <div className="mt-6 p-4 bg-gray-800 rounded-lg border-l-4 border-emerald-400">
+                <h4 className="font-semibold text-emerald-400 mb-2">Jam Pelayanan</h4>
+                <div className="text-sm text-gray-300 space-y-1">
+                  <div className="flex justify-between">
+                    <span>Senin - Jumat:</span>
+                    <span className="font-medium">08:00 - 16:00</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Sabtu:</span>
+                    <span className="font-medium">08:00 - 12:00</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Minggu:</span>
+                    <span className="font-medium text-red-400">Tutup</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Footer Bottom Section */}
-        <div className="border-t border-gray-800 mt-8 lg:mt-12 pt-6 lg:pt-8">
-          
-          {/* Copyright & Links */}
-          <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
-            <p className="text-xs lg:text-sm text-gray-400 text-center sm:text-left">
-              &copy; {new Date().getFullYear()} Desa Cikadu. 
-              <span className="hidden sm:inline"> Dikembangkan dengan ❤️ untuk kemajuan masyarakat desa.</span>
-            </p>
+          {/* Footer Bottom Section */}
+          <div className="border-t border-gray-800 mt-8 lg:mt-12 pt-6 lg:pt-8">
             
-            {/* Footer Navigation Links */}
-            <div className="flex flex-wrap justify-center sm:justify-end gap-4 text-xs lg:text-sm">
-              {footerLinks.map((link, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleNavigation(link.path)}
-                  className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium focus:outline-none focus:text-emerald-400"
-                  aria-label={`Navigasi ke halaman ${link.name}`}
-                >
-                  {link.name}
-                </button>
-              ))}
+            {/* Copyright & Links */}
+            <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+              <p className="text-xs lg:text-sm text-gray-400 text-center sm:text-left">
+                &copy; {new Date().getFullYear()} Desa Cikadu. 
+                <span className="hidden sm:inline"> Dikembangkan dengan ❤️ untuk kemajuan masyarakat desa.</span>
+              </p>
+              
+              {/* Footer Navigation Links */}
+              <div className="flex flex-wrap justify-center sm:justify-end gap-4 text-xs lg:text-sm">
+                {footerLinks.map((link, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleNavigation(link.path)}
+                    className="text-gray-400 hover:text-emerald-400 transition-colors hover:underline font-medium focus:outline-none focus:text-emerald-400"
+                    aria-label={`Navigasi ke halaman ${link.name}`}
+                  >
+                    {link.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="mt-4 pt-4 border-t border-gray-800 text-center">
+              <p className="text-xs text-gray-500 leading-relaxed max-w-4xl mx-auto">
+                Website ini dibuat untuk memperkenalkan potensi luar biasa desa dan mendukung
+                pengembangan ekonomi lokal yang berkelanjutan. Mari bersama-sama membangun desa yang maju dan sejahtera.
+              </p>
             </div>
           </div>
-
-          {/* Additional Info */}
-          <div className="mt-4 pt-4 border-t border-gray-800 text-center">
-            <p className="text-xs text-gray-500 leading-relaxed max-w-4xl mx-auto">
-              Website ini dibuat untuk memperkenalkan potensi luar biasa desa dan mendukung
-              pengembangan ekonomi lokal yang berkelanjutan. Mari bersama-sama membangun desa yang maju dan sejahtera.
-            </p>
-          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
