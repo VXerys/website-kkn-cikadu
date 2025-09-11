@@ -1,31 +1,15 @@
 {/* Hero Section */}
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-  {/* Clean Professional Background */}
-  <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950" />
-  
-  {/* Decorative SVG Pattern Background */}
+  {/* Background Image Full Screen menggunakan logoUrl lokal */}
   <div 
-    className="absolute inset-0 opacity-5"
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
     style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-      backgroundSize: '60px 60px'
+      backgroundImage: `url(${logoUrl})`
     }}
   />
-
-  {/* Logo SVG sebagai Watermark/Dekorasi */}
-  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-    <img 
-      src={logoUrl} 
-      alt="KKN Desa Cikadu Logo" 
-      className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain opacity-10 select-none"
-    />
-  </div>
-
-  {/* Subtle Animated Background Elements */}
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl animate-pulse"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-  </div>
+  
+  {/* Overlay Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-br from-slate-800/70 via-slate-900/80 to-slate-950/90" />
 
   {/* Content Wrapper */}
   <motion.div
