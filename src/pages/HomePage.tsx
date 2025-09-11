@@ -9,7 +9,7 @@ import QuickInfoGrid from '../components/Home/QuickInfoGrid';
 import FeaturedUMKM from '../components/Home/FeaturedUMKM';
 import StatsRow from '../components/Home/StatsRow';
 
-import logoUrl from '../assets/barudaks.svg';
+import logoUrl from '../assets/barudaks.png';
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
