@@ -18,22 +18,16 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image dengan Overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')`,
-          }}
-        />
-        
-        {/* Overlay gradient untuk kontras dan keterbacaan teks */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/85 via-slate-900/75 to-emerald-950/90" />
+        {/* Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950" />
 
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-400/10 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-32 right-16 w-24 h-24 bg-white/5 rounded-full blur-lg animate-bounce"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-emerald-300/10 rounded-full blur-md animate-pulse delay-1000"></div>
+        {/* SVG Logo Background */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img 
+            src={logoUrl} 
+            alt="KKN Desa Cikadu Background Logo" 
+            className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] object-contain opacity-20"
+          />
         </div>
 
         <motion.div
@@ -42,23 +36,6 @@ const HomePage: React.FC = () => {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="relative z-10 text-center text-white max-w-5xl mx-auto px-4"
         >
-          {/* Logo Utama */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotateY: 180 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{ duration: 1.2, delay: 0.1, ease: 'easeOut' }}
-            className="flex justify-center mb-8"
-          >
-            <div className="relative">
-              <img 
-                src={logoUrl} 
-                alt="KKN Desa Cikadu Logo" 
-                className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 drop-shadow-2xl filter brightness-110 hover:scale-105 transition-transform duration-300"
-              />
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-xl animate-pulse"></div>
-            </div>
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
