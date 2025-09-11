@@ -2,54 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
-  MapPin,
-  Users,
-  Building,
-  Newspaper,
   Home,
 } from 'lucide-react';
-import Button from '../components/UI/Button';
-import Card from '../components/UI/Card';
 import { useNavigate } from 'react-router-dom';
+import QuickInfoGrid from '../components/Home/QuickInfoGrid';
+import FeaturedUMKM from '../components/Home/FeaturedUMKM';
+import StatsRow from '../components/Home/StatsRow';
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
-
-  const features = [
-    {
-      icon: Newspaper,
-      title: 'Program KKN Terbaru',
-      description:
-        'Saksikan program-program inovatif mahasiswa yang memberikan dampak nyata bagi kemajuan Desa Cikadu',
-      path: '/news',
-      gradient: 'from-blue-600 to-blue-700',
-      bgColor:
-        'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30',
-      iconColor: 'text-blue-600 dark:text-blue-400',
-    },
-    {
-      icon: Building,
-      title: 'Pemberdayaan Ekonomi',
-      description:
-        'Temukan inovasi UMKM dan pengembangan ekonomi kreatif yang memberdayakan masyarakat desa',
-      path: '/business',
-      gradient: 'from-emerald-600 to-emerald-700',
-      bgColor:
-        'bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/30 dark:to-emerald-800/30',
-      iconColor: 'text-emerald-600 dark:text-emerald-400',
-    },
-    {
-      icon: Home,
-      title: 'Profil Desa Cikadu',
-      description:
-        'Pelajari sejarah panjang, budaya khas, dan potensi luar biasa dari Desa Cikadu yang membanggakan',
-      path: '/about',
-      gradient: 'from-violet-600 to-violet-700',
-      bgColor:
-        'bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-900/30 dark:to-violet-800/30',
-      iconColor: 'text-violet-600 dark:text-violet-400',
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -140,141 +101,14 @@ const HomePage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Features Section - Perfect Center Alignment */}
-      <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800" />
+      {/* Quick Info Grid */}
+      <QuickInfoGrid />
 
-        {/* Main Container with Perfect Centering */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="inline-block px-6 py-3 bg-emerald-100 dark:bg-emerald-900/30 rounded-full text-emerald-700 dark:text-emerald-300 font-semibold text-sm mb-6"
-            >
-              ✨ Program Unggulan KKN
-            </motion.div>
+      {/* Featured UMKM */}
+      <FeaturedUMKM />
 
-            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-emerald-800 to-gray-900 dark:from-white dark:via-emerald-300 dark:to-white bg-clip-text text-transparent mb-6">
-              Inovasi untuk Kemajuan Desa
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Melalui program KKN yang terstruktur dan inovatif, kami
-              berkomitmen membangun Desa Cikadu yang lebih maju, mandiri, dan
-              berkelanjutan.
-            </p>
-          </motion.div>
-
-          {/* Cards Container - Centered with Flex */}
-          <div className="flex justify-center items-center w-full">
-            <div className="flex flex-wrap justify-center items-stretch gap-8 max-w-5xl">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{
-                    duration: 0.7,
-                    delay: index * 0.15,
-                    ease: 'easeOut',
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{
-                    y: -10,
-                    scale: 1.02,
-                    transition: { duration: 0.3 },
-                  }}
-                  className="group flex-shrink-0"
-                  style={{
-                    width: 'calc(33.333% - 1.5rem)', // 3 kolom dengan gap
-                    minWidth: '280px', // Minimum width untuk mobile
-                    maxWidth: '320px', // Maximum width untuk consistency
-                  }}
-                >
-                  <Card
-                    onClick={() => navigate(feature.path)}
-                    className={`p-6 lg:p-8 text-center h-full cursor-pointer border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ${feature.bgColor} backdrop-blur-sm relative overflow-hidden rounded-2xl w-full min-h-[340px] flex flex-col`}
-                  >
-                    {/* Hover Gradient Overlay */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}
-                    />
-
-                    {/* Card Content */}
-                    <div className="relative z-10 flex flex-col h-full justify-between">
-                      {/* Main Content Area */}
-                      <div className="flex flex-col items-center justify-center flex-1 space-y-6">
-                        {/* Icon Container */}
-                        <motion.div
-                          className={`w-16 h-16 rounded-xl flex items-center justify-center ${feature.bgColor} backdrop-blur-sm border border-white/20 shadow-md group-hover:shadow-lg transition-all duration-300`}
-                          whileHover={{ rotate: 360, scale: 1.1 }}
-                          transition={{ duration: 0.6 }}
-                        >
-                          <feature.icon
-                            className={`h-8 w-8 ${feature.iconColor}`}
-                          />
-                        </motion.div>
-
-                        {/* Title */}
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors duration-300 leading-tight text-center">
-                          {feature.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm text-center px-2 flex-1 flex items-center">
-                          {feature.description}
-                        </p>
-                      </div>
-
-                      {/* CTA Section */}
-                      <motion.div
-                        className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 transition-all duration-300 mt-6 pt-4 border-t border-gray-200/20 dark:border-gray-700/20"
-                        initial={{ x: -10 }}
-                        whileHover={{ x: 0 }}
-                      >
-                        <span className="text-sm font-semibold">
-                          Selengkapnya
-                        </span>
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </motion.div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Responsive CSS untuk Mobile */}
-          <style jsx>{`
-      @media (max-width: 1024px) {
-        .flex-wrap > div {
-          width: calc(50% - 1rem) !important;
-          min-width: 260px;
-        }
-      }
-      
-      @media (max-width: 640px) {
-        .flex-wrap > div {
-          width: 100% !important;
-          max-width: 350px !important;
-          min-width: unset;
-        }
-      }
-    `}</style>
-        </div>
-      </section>
-
-      {/* 
+      {/* Statistics */}
+      <StatsRow />
 
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden min-h-screen flex items-center">
@@ -377,7 +211,7 @@ const HomePage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
+              className="flex justify-center"
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
             >
               <motion.button
@@ -387,24 +221,6 @@ const HomePage: React.FC = () => {
                 onClick={() => navigate('/about')}
                 data-scroll-to-top="true"
                 className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-emerald-700 hover:bg-emerald-50 shadow-2xl hover:shadow-emerald-200/50 font-bold rounded-xl transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  <Home className="h-5 w-5" />
-                  Profil Desa
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-              </motion.button>
-
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                onClick={() => navigate('/about')}
-                data-scroll-to-top="true"
-                className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/60 hover:border-white text-white hover:bg-white/10 font-bold rounded-xl backdrop-blur-md shadow-lg hover:shadow-white/20 transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg"
-              >
-                Tentang Desa
-              </motion.button>
             </motion.div>
 
             <motion.div
@@ -420,7 +236,6 @@ const HomePage: React.FC = () => {
                   Program KKN yang telah mengubah kehidupan masyarakat desa
                 </span>
                 <div className="hidden sm:block w-8 h-px bg-gradient-to-l from-transparent to-white/40" />
-              </div>
             </motion.div>
           </motion.div>
         </div>
