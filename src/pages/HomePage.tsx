@@ -18,17 +18,42 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `linear-gradient(135deg, rgba(17, 24, 39, 0.75) 0%, rgba(31, 41, 55, 0.8) 50%, rgba(17, 24, 39, 0.85) 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
-          }}
-        />
+        {/* Multi-layer Background dengan SVG */}
+        <div className="absolute inset-0">
+          {/* Base gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950" />
+          
+          {/* SVG Pattern Background */}
+          <div 
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: `url(${logoUrl})`,
+              backgroundSize: '120px 120px',
+              backgroundRepeat: 'repeat',
+              backgroundPosition: 'center',
+            }}
+          />
+          
+          {/* Large SVG Watermark */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-96 h-96 md:w-[500px] md:h-[500px] opacity-15">
+              <img 
+                src={logoUrl} 
+                alt="Desa Cikadu Background Logo" 
+                className="w-full h-full object-contain filter brightness-150"
+              />
+            </div>
+          </div>
+          
+          {/* Overlay gradient untuk kontras */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+        </div>
 
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-32 right-16 w-24 h-24 bg-white/3 rounded-full blur-lg animate-bounce"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-white/5 rounded-full blur-md animate-pulse delay-1000"></div>
+          <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-400/10 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-32 right-16 w-24 h-24 bg-white/5 rounded-full blur-lg animate-bounce"></div>
+          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-emerald-300/10 rounded-full blur-md animate-pulse delay-1000"></div>
         </div>
 
         <motion.div
@@ -37,10 +62,28 @@ const HomePage: React.FC = () => {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="relative z-10 text-center text-white max-w-5xl mx-auto px-4"
         >
+          {/* Logo Utama */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, rotateY: 180 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1.2, delay: 0.1, ease: 'easeOut' }}
+            className="flex justify-center mb-8"
+          >
+            <div className="relative">
+              <img 
+                src={logoUrl} 
+                alt="KKN Desa Cikadu Logo" 
+                className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 drop-shadow-2xl filter brightness-110 hover:scale-105 transition-transform duration-300"
+              />
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-xl animate-pulse"></div>
+            </div>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+            transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
             KKN Universitas Nusa Putra
@@ -52,7 +95,7 @@ const HomePage: React.FC = () => {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
+            transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
             className="text-lg md:text-xl mb-10 text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
           >
             Bergabunglah dengan mahasiswa KKN dalam membangun masa depan cerah
@@ -63,7 +106,7 @@ const HomePage: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 1, delay: 0.7, ease: 'easeOut' }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <button
