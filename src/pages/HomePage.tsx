@@ -1,34 +1,31 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import {
-  ArrowRight,
-  Home,
-} from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import QuickInfoGrid from '../components/Home/QuickInfoGrid';
-import FeaturedUMKM from '../components/Home/FeaturedUMKM';
-import StatsRow from '../components/Home/StatsRow';
-
-import logoUrl from '../assets/barudak.svg';
-
-const HomePage: React.FC = () => {
-  const navigate = useNavigate();
-
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Hero Section */}
-      {/* Hero Section */}
+{/* Hero Section */}
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-  {/* Background Image Full Screen menggunakan logoUrl lokal */}
+  {/* Clean Professional Background */}
+  <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950" />
+  
+  {/* Decorative SVG Pattern Background */}
   <div 
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    className="absolute inset-0 opacity-5"
     style={{
-      backgroundImage: `url(${logoUrl})`
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      backgroundSize: '60px 60px'
     }}
   />
-  
-  {/* Overlay Gradient */}
-  <div className="absolute inset-0 bg-gradient-to-br from-slate-800/70 via-slate-900/80 to-slate-950/90" />
+
+  {/* Logo SVG sebagai Watermark/Dekorasi */}
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <img 
+      src={logoUrl} 
+      alt="KKN Desa Cikadu Logo" 
+      className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain opacity-10 select-none"
+    />
+  </div>
+
+  {/* Subtle Animated Background Elements */}
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl animate-pulse"></div>
+    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+  </div>
 
   {/* Content Wrapper */}
   <motion.div
@@ -106,156 +103,3 @@ const HomePage: React.FC = () => {
     </div>
   </motion.div>
 </section>
-
-      {/* Quick Info Grid */}
-      <QuickInfoGrid />
-
-      {/* Featured UMKM */}
-      <FeaturedUMKM />
-
-      {/* Statistics */}
-      <StatsRow />
-
-      {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden min-h-screen flex items-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `linear-gradient(135deg, 
-              rgba(5, 150, 105, 0.95) 0%, 
-              rgba(16, 185, 129, 0.9) 25%, 
-              rgba(52, 211, 153, 0.85) 50%, 
-              rgba(34, 197, 94, 0.9) 75%, 
-              rgba(21, 128, 61, 0.95) 100%), 
-              url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80')`,
-          }}
-        />
-
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            animate={{
-              rotate: 360,
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-            className="absolute top-20 left-10 w-32 h-32 border border-white/20 rounded-2xl backdrop-blur-sm"
-          />
-
-          <motion.div
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 180, 360],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute bottom-32 right-16 w-24 h-24 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full backdrop-blur-lg"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-emerald-500/10 to-transparent" />
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-              backgroundSize: '40px 40px',
-            }}
-          />
-        </div>
-
-        <div className="w-full max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: true }}
-            className="flex flex-col items-center justify-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/15 backdrop-blur-md rounded-full text-white font-semibold text-sm mb-8 border border-white/20 shadow-lg"
-            >
-              <span className="text-lg">🌟</span>
-              <span>Bergabunglah dengan KKN</span>
-              <div className="w-2 h-2 bg-cyan-300 rounded-full animate-pulse" />
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight text-center"
-            >
-              <span className="inline-block">Mari Wujudkan</span>
-              <br />
-              <span className="bg-gradient-to-r from-cyan-300 via-white to-emerald-200 bg-clip-text text-transparent drop-shadow-lg">
-                Desa Cikadu yang Maju
-              </span>
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-lg md:text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-medium drop-shadow-sm text-center"
-            >
-              Ikuti perjalanan transformatif KKN Universitas Nusa Putra di Desa
-              Cikadu.
-              <span className="text-cyan-200 font-semibold">
-                {' '}
-                Bagikan ide kreatif Anda
-              </span>
-              , berkolaborasi dengan masyarakat, dan ciptakan dampak positif
-              yang berkelanjutan.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                onClick={() => navigate('/about')}
-                data-scroll-to-top="true"
-                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-emerald-700 hover:bg-emerald-50 shadow-2xl hover:shadow-emerald-200/50 font-bold rounded-xl transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Pelajari Lebih Lanjut
-                  <Home className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
-              viewport={{ once: true }}
-              className="mt-12 sm:mt-16 flex justify-center"
-            >
-              <div className="flex flex-col sm:flex-row items-center gap-3 text-white/70 text-xs sm:text-sm font-medium text-center">
-                <div className="hidden sm:block w-8 h-px bg-gradient-to-r from-transparent to-white/40" />
-                <span className="px-4 sm:px-0">
-                  Program KKN yang telah mengubah kehidupan masyarakat desa
-                </span>
-                <div className="hidden sm:block w-8 h-px bg-gradient-to-l from-transparent to-white/40" />
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
-  );
-};
-
-export default HomePage;
