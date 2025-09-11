@@ -116,12 +116,12 @@ const HomePage: React.FC = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `linear-gradient(135deg, 
-        rgba(5, 150, 105, 0.95) 0%, 
-        rgba(16, 185, 129, 0.9) 25%, 
-        rgba(52, 211, 153, 0.85) 50%, 
-        rgba(34, 197, 94, 0.9) 75%, 
-        rgba(21, 128, 61, 0.95) 100%), 
-        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80')`,
+              rgba(5, 150, 105, 0.95) 0%, 
+              rgba(16, 185, 129, 0.9) 25%, 
+              rgba(52, 211, 153, 0.85) 50%, 
+              rgba(34, 197, 94, 0.9) 75%, 
+              rgba(21, 128, 61, 0.95) 100%), 
+              url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80')`,
           }}
         />
 
@@ -211,7 +211,7 @@ const HomePage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex justify-center"
+              viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
             >
               <motion.button
@@ -221,6 +221,13 @@ const HomePage: React.FC = () => {
                 onClick={() => navigate('/about')}
                 data-scroll-to-top="true"
                 className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-white text-emerald-700 hover:bg-emerald-50 shadow-2xl hover:shadow-emerald-200/50 font-bold rounded-xl transform transition-all duration-300 whitespace-nowrap text-base sm:text-lg overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Pelajari Lebih Lanjut
+                  <Home className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </motion.button>
             </motion.div>
 
             <motion.div
@@ -236,12 +243,12 @@ const HomePage: React.FC = () => {
                   Program KKN yang telah mengubah kehidupan masyarakat desa
                 </span>
                 <div className="hidden sm:block w-8 h-px bg-gradient-to-l from-transparent to-white/40" />
+              </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
     </div>
-  )
   );
 };
 
