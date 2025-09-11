@@ -18,36 +18,16 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Multi-layer Background dengan SVG */}
-        <div className="absolute inset-0">
-          {/* Base gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950" />
-          
-          {/* SVG Pattern Background */}
-          <div 
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: `url(${logoUrl})`,
-              backgroundSize: '120px 120px',
-              backgroundRepeat: 'repeat',
-              backgroundPosition: 'center',
-            }}
-          />
-          
-          {/* Large SVG Watermark */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-96 h-96 md:w-[500px] md:h-[500px] opacity-15">
-              <img 
-                src={logoUrl} 
-                alt="Desa Cikadu Background Logo" 
-                className="w-full h-full object-contain filter brightness-150"
-              />
-            </div>
-          </div>
-          
-          {/* Overlay gradient untuk kontras */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
-        </div>
+        {/* Background Image dengan Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')`,
+          }}
+        />
+        
+        {/* Overlay gradient untuk kontras dan keterbacaan teks */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/85 via-slate-900/75 to-emerald-950/90" />
 
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
