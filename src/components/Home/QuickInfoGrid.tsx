@@ -46,7 +46,7 @@ const QuickInfoGrid: React.FC = () => {
       path: '/business',
       gradient: 'from-emerald-500 to-teal-600',
       iconBg: 'bg-emerald-500',
-      stats: '50+ UMKM',
+      stats: '4+ UMKM',
       badge: 'Berkembang',
     },
     {
