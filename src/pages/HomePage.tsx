@@ -241,6 +241,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
     </div>
+  )
   );
 };
 
