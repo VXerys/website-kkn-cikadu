@@ -9,6 +9,8 @@ import QuickInfoGrid from '../components/Home/QuickInfoGrid';
 import FeaturedUMKM from '../components/Home/FeaturedUMKM';
 import StatsRow from '../components/Home/StatsRow';
 
+import logoUrl from '../../assets/barudak.svg';
+
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
